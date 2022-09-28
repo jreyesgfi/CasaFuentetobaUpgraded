@@ -1,0 +1,1 @@
+export const emailDirection = 'jorge1998reyes1998@gmail.com';

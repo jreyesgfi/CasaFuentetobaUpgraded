@@ -1,0 +1,15 @@
+/*fonts*/
+@font-face { font-family: primary-light; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Thin.ttf') }
+@font-face { font-family: primary-normal; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Light.ttf') }
+@font-face { font-family: primary-bold; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Bold.ttf') }
+@font-face { font-family: primary-semibold; src: url('/public/assets/fonts/MPLUS1/MPLUS1-SemiBold.ttf') }
+
+/* @font-face { font-family: title-test; src: url('/public/assets/fonts/Oleo/SourceSerifPro-LightItalic.ttf') } */
+
+/* @font-face { font-family: MPLUS1Light; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Thin.ttf') } */
+/* @font-face { font-family: MPLUS1; src: url('/public/assets/fonts/MPLUS1/MPLUS1-ExtraLight.ttf') } */
+/* @font-face { font-family: MPLUS1Normal; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Light.ttf') } */
+/* @font-face { font-family: MPLUS1Bold; src: url('/public/assets/fonts/MPLUS1/MPLUS1-Bold.ttf') } */
+/* @font-face { font-family: MPLUS1SemiBold; src: url('/public/assets/fonts/MPLUS1/MPLUS1-SemiBold.ttf') } */
+
+/* @font-face { font-family: GrotesqueLight; src: url('/public/assets/fonts/DarkerGrotesque/DarkerGrotesque-Light.ttf') } */
