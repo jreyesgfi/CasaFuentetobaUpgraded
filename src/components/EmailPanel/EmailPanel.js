@@ -36,9 +36,9 @@ const EmailPanel = forwardRef((props, ref) => {
                             <Text>
                                 Fechas seleccionadas
                             </Text>
-                            <Text>
+                            <p>
                                 {selectedDays}
-                            </Text>
+                            </p>
                         </BookingInfoWrapper>
                         <EmailFormWrapper>
                             {step === 0 &&

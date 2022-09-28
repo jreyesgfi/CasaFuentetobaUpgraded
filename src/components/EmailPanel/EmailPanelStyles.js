@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Column, MainHeading, Row, Text } from "../../globalStyles";
+import { Button, Column, globalColors, MainHeading, Row, Text } from "../../globalStyles";
 
 export const EmailPanelWrapper = styled(Column)`
     position:relative;
@@ -13,6 +13,9 @@ export const EmailPanelHeader = styled(MainHeading)`
 
 export const BookingInfoWrapper = styled(Column)`
     margin:1rem 0 2rem;
+    >*{
+        color:${globalColors.light.primary};
+    }
 `;
 
 export const NameInfoWrapper = styled(Column)`

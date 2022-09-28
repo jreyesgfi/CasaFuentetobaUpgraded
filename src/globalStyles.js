@@ -55,6 +55,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
 `;
+// sizes general
+export const minimunSize = '360px';
+
+
 export const WaitingContainer = styled.div`
 	visibility: ${({ loading }) => (loading==1?'hidden':'visible')}
 `

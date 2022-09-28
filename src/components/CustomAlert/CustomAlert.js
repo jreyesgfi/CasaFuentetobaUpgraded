@@ -4,7 +4,7 @@ import { AlertWrapper } from './CustomAlertStyle';
 import {MdDone}  from "react-icons/md";
 import {MdInfo}  from "react-icons/md";
 import {MdError}  from "react-icons/md";
-import { globalColors } from '../../globalStyles';
+import { globalColors, Text } from '../../globalStyles';
 import React from 'react';
 
 
@@ -26,7 +26,7 @@ const CustomAlert = (props) => {
     /**
     * init the timer
     */
-    async function initTheTimer(time = 6000) {
+    async function initTheTimer(time = 10000) {
 
         // track this alert
         const id = alertRef.current;
@@ -105,8 +105,8 @@ const CustomAlert = (props) => {
             animate={fadingState===true?animate:{}}
             transition-duration="2s"
             onClose={() => { setAlertDisplayLocal(false); alertRef.current = 0; }}>
-            {alertMessage}
-            <IconContext.Provider value={{ size: '4rem', color: `${globalColors.dark.primary}`}}>
+            <p>{alertMessage}</p>
+            <IconContext.Provider value={{ size: 'clamp(7rem, 7rem, 100px)', color: `${globalColors.dark.primary}`}}>
                 {iconChosen()}
             </IconContext.Provider>
         </AlertWrapper>
