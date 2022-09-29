@@ -221,7 +221,7 @@ const Calendar = (props) => {
         // safe the total price
         totalPriceRef.current = totalPrice;
 
-        return (totalPrice + `(-${weekDiscount*100}% aplicado)`);
+        return totalPrice;
     }
 
     /**
