@@ -12,7 +12,6 @@ const PhotoSection = ()=>{
             <ImageGrid selectedRoom={selectedRoom}
             images={GalleryImagesData[selectedRoom]}/>
             <RoomSelector roomDict={roomDict} selectRoom={(room)=> setSelectedRoom(room)} selectedRoom={selectedRoom}/>
-            <NextButton step={1}></NextButton>
         </Section>
     )
 }

@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import { globalColors, Section} from "../../globalStyles";
+import { globalColors, minimunSize, Section} from "../../globalStyles";
 
 // export const BookingNextButton = styled(NextButtonStyle)`
 //     background-color: ${globalColors.color.primary};
 // `;
 export const SelectionDateWrapper = styled(Section)`
     overflow: visible;
+    margin-top: 3rem;
+    max-width: 100vw;
 `
 
 export const TotalPriceWrapper = styled.div`
@@ -14,6 +16,7 @@ export const TotalPriceWrapper = styled.div`
     top: 40vh;
     bottom:3rem;
     width:100vw;
+    min-width: ${minimunSize};
     height:fit-content;
     border: 1px solid ${globalColors.color.primary};
     backdrop-filter: blur(5px);

@@ -24,6 +24,7 @@ export const RoomSelectorImage = styled.img`
     border:2px solid ${({selected})=>(selected?globalColors.dark.primary:globalColors.grey.primary)};
     object-fit: cover;
     opacity: ${({selected})=>(selected?1:0.3)};
+    image-resolution: 100dpi;
     &:hover {
         transition: all 0.3s ease;
         opacity:1;

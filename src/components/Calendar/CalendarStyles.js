@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, globalColors, MainHeading, Row } from "../../globalStyles";
+import { Column, globalColors, MainHeading, minimunSize, Row } from "../../globalStyles";
 
 const baseStyle = {
     'background':globalColors.light.primary,
@@ -57,8 +57,8 @@ const fillSelected = (selected, selectionType)=>{
 
 export const CalendarWrapper = styled.div`
     padding:2rem 2.5rem;
-    max-width:800px;
-    min-width:360px;
+    max-width:min(800px, 100vw);
+    min-width:${minimunSize};
     @media screen and (max-width: 600px) {
         padding:1.5rem;
     }
@@ -102,4 +102,5 @@ export const DayCellHeader = styled(MainHeading)`
 `;
 export const DayCellBody = styled.p`
     visibility: ${({occupied})=>(occupied?occupiedStyle.bodyVisibility:'')};
+    font-size: clamp(9pt, 2vw, 2rem);
 `;

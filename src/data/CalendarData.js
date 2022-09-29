@@ -2,6 +2,8 @@ import Papa from "papaparse";
 import daysCalendar from "./CalendarData.csv";
 
 export const priceMin = 600;
+export const weekDiscount = 0.34;
+export const baseDayPrice = 300;
 
 // Days of week
 export const daysOfWeekDict = {

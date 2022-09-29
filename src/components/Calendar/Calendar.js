@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { daysOfEachMonth, daysOfWeekDict, monthsDict, priceMin } from "../../data/CalendarData";
+import { baseDayPrice, daysOfEachMonth, daysOfWeekDict, priceMin, weekDiscount } from "../../data/CalendarData";
 import { MainHeading, Section } from "../../globalStyles"
 import { changeDateFormat, dateToString } from "../../util/dataParser";
 import IDGenerator from "../../util/IdGenerator";
@@ -32,6 +32,7 @@ const Calendar = (props) => {
     // total price
     const minTotalPrice = priceMin;
     const totalPriceRef = useRef(0);
+    const appliedDiscount = useRef(false);
 
     /**
      * Displayed period
@@ -145,7 +146,7 @@ const Calendar = (props) => {
             const currentDayStr = dateToString(currentDay, "dd/mm/yyyy");
 
             // add the current day to the list of rangeSelected
-            totalRange[currentDayStr] = currentDayStr;
+            totalRange[currentDayStr] = whatIsPrice(currentDayStr);
 
             // check if it is occupied
             if (isOccupied(currentDayStr) == 1) {
@@ -190,7 +191,7 @@ const Calendar = (props) => {
     function whatIsPrice(dayText) {
         const dayOfWeek = new Date(changeDateFormat(dayText)).getDay();
         const answer = daysData?.[dayText]?.['precio']
-            || ((dayOfWeek === 0 || dayOfWeek === 6) ? 300 : 150);
+            || ((dayOfWeek === 0 || dayOfWeek === 6) ? baseDayPrice : baseDayPrice);
         return answer
     }
 
@@ -199,15 +200,24 @@ const Calendar = (props) => {
             return null
         }
 
-        const totalPrice =
+        
+        var totalPrice =
             // change to its price
             Object.keys(selectedDays).map((day) => {
             
-            return (parseInt(whatIsPrice(selectedDays[day])))}).
+            return selectedDays[day]}).
                 
             // add to the total
             reduce((p1, p2) => p1 + p2)
 
+        // take the last day price
+        totalPrice -= whatIsPrice(firstLastSelectedRef.current[1]);
+        appliedDiscount.current = false
+        if ( Object.keys(selectedDays).length >=7){
+            totalPrice = Math.ceil(totalPrice * (1-weekDiscount));
+            appliedDiscount.current = true;
+        }
+        
         // safe the total price
         totalPriceRef.current = totalPrice;
 
@@ -239,6 +249,8 @@ const Calendar = (props) => {
             
             const occupiedToggle = dayLocal['ocupado'] == 1 || dayDateFormat < new Date() ? true : '';
             const selectedToggle = selectedDays[dayLocal['dia']] ? true : '';
+            const price = whatIsPrice(dayLocal['dia']);
+            const lastDay = dayLocal['dia']===firstLastSelectedRef?.current?.[1] && rangeState;
 
 
             return ( /*day container*/
@@ -263,7 +275,7 @@ const Calendar = (props) => {
                         <DayCellBody
                             occupied = {occupiedToggle}
                         >
-                            {dayLocal['precio']}€
+                            {lastDay?('Salida'):`${price}€`}
                         </DayCellBody>
                     </DayCell>
                 </DayCellWrapper>
@@ -324,7 +336,11 @@ const Calendar = (props) => {
 
             //send an alert
             const [firstSelected, lastSelected] = firstLastSelectedRef?.current || [,];
-            const message = `Periodo del ${dateToString(new Date(changeDateFormat(firstSelected)))} al ${dateToString(new Date(changeDateFormat(lastSelected)))} seleccionado correctamente.`
+            var message = <p>Periodo del <b>{dateToString(new Date(changeDateFormat(firstSelected)))} </b>
+                al <b>{dateToString(new Date(changeDateFormat(lastSelected)))}</b> seleccionado correctamente.</p>
+            if (appliedDiscount.current === true){
+                message = (<>{message}<p>Se ha aplicado un <b>descuento</b> del {weekDiscount*100}%.</p></>)
+            }
             sendAlert(message, 'success');
         }
         else {

@@ -33,7 +33,7 @@ export const globalColors = {
 
     },
     red:{
-        primary:'#ac2f2f',
+        primary:'#F65050',
 		light:'#F7E1E1',
     },
 	blue:{
@@ -55,6 +55,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
 `;
+// sizes general
+export const minimunSize = '360px';
+
+
 export const WaitingContainer = styled.div`
 	visibility: ${({ loading }) => (loading==1?'hidden':'visible')}
 `

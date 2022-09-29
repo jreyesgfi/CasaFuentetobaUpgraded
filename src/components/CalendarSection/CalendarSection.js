@@ -58,7 +58,7 @@ const CalendarSection = () => {
 
     return (
         <>
-            <SelectionDateWrapper inverse smPadding="40px 0 0" position='relative' height='120vh'>
+            <SelectionDateWrapper inverse smPadding="40px 0 0" position='relative'padding="0">
                 {(okSignal === 1)&&
                     <TotalPriceWrapper>
                         <TotalPrice>Precio total: {totalPrice}€</TotalPrice>
@@ -96,7 +96,7 @@ const CalendarSection = () => {
                 <EmailPanel
                     ref={emailPanelRef}
                     rangeSelected={rangeSelectedRef?.current}
-                    closePanel={() => { setEmailPanel(false); }}
+                    closePanel={() => { setOkSignal(0); }}
                 />
             }
         </>
