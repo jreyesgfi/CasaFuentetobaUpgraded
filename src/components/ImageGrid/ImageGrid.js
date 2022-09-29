@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ImageGridWrapper, MainImageInGrid, MainImageInGridWrapper, OtherImageInGrid, OtherImagesInGridWrapper } from './ImageGridStyle';
+import LazyImage from '../LazyImage/LazyImage';
+import { ImageGridWrapper, MainImageInGrid, MainImageInGridWrapper, OtherImageHolder, OtherImageInGrid, OtherImagesInGridWrapper } from './ImageGridStyle';
 
 const ImageGrid = (props) => {
 
@@ -11,7 +12,7 @@ const ImageGrid = (props) => {
     // numImagesDisplayed = Math.min(numImagesDisplayed,images.length-1);
 
     const [mainPhotoNum, setMainPhotoNum] = useState(0);
-    const [imageExpanded, setImageExpanded] = useState(false)
+    //const [imageExpanded, setImageExpanded] = useState(false)
 
     //  prevent no photos
     if (numTotalPhotos === 0) { return }
@@ -37,15 +38,20 @@ const ImageGrid = (props) => {
 
     return (
         <ImageGridWrapper>
-            <MainImageInGridWrapper>
-                <MainImageInGrid
-                    src={images[mainPhotoNum]['imgUrl']}/>
-            </MainImageInGridWrapper>
+            <LazyImage
+                src={images[mainPhotoNum]['imgUrl']}
+                alt={'imagen casa fuentetoba grande'}
+                imageStyle={MainImageInGrid}
+                wrapperStyle={MainImageInGridWrapper}/>
             <OtherImagesInGridWrapper>
                 {imagesDisplayed().map((image, index) =>(
-                    <OtherImageInGrid
+                    <LazyImage
                         key={index}
                         src={image['imgUrl']}
+                        alt={'imagen casa fuentetoba previsualización'}
+                        imageStyle={OtherImageInGrid}
+                        imagesHolder={OtherImageHolder}
+                        delayTime={500*index}
                         onClick={()=>{setMainPhotoNum((mainPhotoNum+index+1)%numImagesDisplayed)}}/>)
                 )}
             </OtherImagesInGridWrapper>

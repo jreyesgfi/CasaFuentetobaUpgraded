@@ -33,7 +33,7 @@ export const globalColors = {
 
     },
     red:{
-        primary:'#ac2f2f',
+        primary:'#F65050',
 		light:'#F7E1E1',
     },
 	blue:{

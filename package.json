@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://lacasadefuentetoba.es/",
   "dependencies": {
+    "@dotlottie/player-component": "^1.1.1",
     "framer-motion": "6.5.1",
     "jquery": "^3.6.1",
     "jsx": "^0.9.89",

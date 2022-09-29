@@ -57,6 +57,17 @@ export const OtherImagesInGridWrapper = styled(Row)`
 		white-space: nowrap;
 	}
 `;
+export const OtherImageHolder = styled.div`
+	max-width: 85%;
+	min-width:65%;
+	width:80%;
+	max-height:30%;
+	min-height:24%;
+	@media screen and (max-width: 550px) {
+		width:clamp(80px, 24%, 200px);
+		height:100%;
+	}
+`
 export const OtherImageInGrid = styled.img`
 	background-color: ${globalColors.grey.light};
 	max-height:30%;
