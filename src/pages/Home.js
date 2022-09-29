@@ -4,16 +4,12 @@ import Hero from '../components/Hero/Hero';
 import HomeImages from '../components/HomeImages/HomeImages';
 import HomeInfo from '../components/HomeInfo/HomeInfo';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
-import Map from '../components/Map/Map';
-import NextButton from '../components/NextButton/NextButton';
 import { Section } from '../globalStyles';
-import IDGenerator from '../util/IdGenerator';
-import { useAnimation } from 'framer-motion';
 
 const Home = (props)=>{
 
     //state of indication icon
-    const [indicationState, setIndicationState] = useState({show:0});
+    const [indicationState, setIndicationState] = useState([{show:0}]);
 
     // phaseState
     const [phaseState,setPhaseState] = useState(0)
@@ -51,7 +47,7 @@ const Home = (props)=>{
             indications.navigate=1;
         }
 
-        setIndicationState({...indications});
+        setIndicationState([indications]);
     },[topInView,bottomInView,phaseState]);
     
     return(
@@ -61,7 +57,7 @@ const Home = (props)=>{
                 <Hero/>
             </Section>
             <HomeInfo position="relative" inverse ref={bottomRef}/>
-            <IndicationIcon referenceValues={indicationState}/>
+            <IndicationIcon indications={indicationState}/>
             {/* <Map></Map> */}
         </>
     )

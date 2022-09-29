@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { GalleryImagesData, roomDict } from '../../data/GalleryData';
 import { Section } from '../../globalStyles';
 import NextButton from '../NextButton/NextButton';
 import RoomSelector from '../RoomSelector/RoomSelector';
 import ImageGrid from '../ImageGrid/ImageGrid';
 
-const PhotoSection = ()=>{
+const PhotoSection = forwardRef((props,ref)=>{
     const [selectedRoom, setSelectedRoom] = useState('HABITACIONES');
     return(
-        <Section inverse padding="80px 0">
+        <Section inverse padding="80px 0" ref={ref}>
             <ImageGrid selectedRoom={selectedRoom}
             images={GalleryImagesData[selectedRoom]}/>
             <RoomSelector roomDict={roomDict} selectRoom={(room)=> setSelectedRoom(room)} selectedRoom={selectedRoom}/>
         </Section>
     )
-}
+})
 export default PhotoSection;

@@ -1,42 +1,49 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import data from "../../data/NavbarData";
-import { IndicationIconImg, IndicationIconWrapper } from './IndicationIconStyle';
+import { IndicationIconImg, IndicationIconWrapper, IndicationsWrapper } from './IndicationIconStyle';
 
-const IndicationIcon = ({referenceValues}) =>{
-
-    const defaults = {
-        show:0,
-        iconState:0,
-        clickHandler: function(){},
-        rotation:0,
-    };
-    const currentSettings = {
-        ...defaults,
-        ...referenceValues
-    };
+const IndicationIcon = (props) => {
+    const defaults = [{
+        show: 0,
+        iconState: 0,
+        handleClick: function () { },
+        rotation: 0,
+    }];
+    const currentSettings = props?.indications || defaults;
     const iconsDictionary = {
-        0:'./assets/icons/greenDownArrow.png'
+        0: './assets/icons/greenDownArrow.png',
+        1: './assets/icons/redVideoRound.png'
     };
 
-    const iconSelected= iconsDictionary[currentSettings.iconState];
 
     //navigation
     const navigate = useNavigate();
-    if (currentSettings?.navigate){
-        const newStep = currentSettings.navigate;
-        currentSettings.handleClick = ()=>navigate(data[newStep].to) 
+    const correctHandleClick = (indication)=>{
+        var handleClick = indication?.handleClick;
+        if (indication.navigate !== undefined){
+            const newStep = indication.navigate;
+            handleClick = () => navigate(data[newStep].to)
+        }
+        return handleClick;
     }
-
     return (
-        <IndicationIconWrapper 
-            show={currentSettings.show}
-            onClick={currentSettings.handleClick}>
-            <IndicationIconImg
-                src={iconSelected}
-                rotation= {currentSettings.rotation}
-            />
-        </IndicationIconWrapper>
+        <IndicationsWrapper>
+            {currentSettings.map((indication,index) => {
+                const handleClick = correctHandleClick(indication);
+                return (
+                    <IndicationIconWrapper
+                        key={index}
+                        show={indication?.show || 0}
+                        onClick={handleClick||function(){}}>
+                        <IndicationIconImg
+                            src={iconsDictionary[indication?.iconState||0]}
+                            rotation={indication?.rotation||0}
+                        />
+                    </IndicationIconWrapper>
+                )
+            })}
+        </IndicationsWrapper>
     )
 }
 
