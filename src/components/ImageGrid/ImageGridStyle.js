@@ -4,11 +4,11 @@ import { globalColors, Row } from '../../globalStyles';
 
 
 export const ImageGridWrapper = styled(Row)`
-	border:1px ${globalColors.blue.primary} solid;
+	/* border:2pt ${globalColors.grey.primary} solid; */
 	min-width: 320px;
 	width:97vw;
 	height:60vh;
-	margin: 4vh auto;
+	margin: 3vh auto 5vh;
 	align-content:flex-start;
 	@media screen and (max-width: 550px) {
 		flex-wrap:wrap;
@@ -32,6 +32,7 @@ export const MainImageInGrid = styled.img`
 	min-height:70%;
 	max-height:100%;
 	object-fit:cover;
+	border-radius: 5pt;
 	@media screen and (max-width: 550px) {
 		margin-bottom:55px;
 		max-height:85%;
@@ -40,7 +41,7 @@ export const MainImageInGrid = styled.img`
 `;
 
 export const OtherImagesInGridWrapper = styled(Row)`
-	border:1px ${globalColors.blue.primary} solid;
+	border-left:2pt ${globalColors.grey.primary} solid;
 	max-height:100%;
 	width:clamp(80px,20%, 400px);
 	flex-wrap: wrap;
@@ -48,13 +49,18 @@ export const OtherImagesInGridWrapper = styled(Row)`
 	justify-content: center;
 	overflow-x: hidden;
 	overflow-y: auto;
+	padding:1% 0 5%;
+	box-sizing:content-box;
 	@media screen and (max-width: 550px) {
+		border-top:2pt ${globalColors.grey.primary} solid;
+		border-left:none;
 		display:inline-block;
 		flex-direction: row;
-		width:fit-content;
+		width:100%;
 		overflow-x: auto;
 		height:20%;
 		white-space: nowrap;
+		overflow-y:hidden;
 	}
 `;
 export const OtherImageHolder = styled.div`
@@ -64,8 +70,12 @@ export const OtherImageHolder = styled.div`
 	max-height:30%;
 	min-height:24%;
 	@media screen and (max-width: 550px) {
-		width:clamp(80px, 24%, 200px);
+		display:inline-block;
+		min-width:0;
+		width:24%;
+		max-height:none;
 		height:100%;
+		object-fit:cover;
 	}
 `
 export const OtherImageInGrid = styled.img`
@@ -74,11 +84,13 @@ export const OtherImageInGrid = styled.img`
 	min-height:24%;
 	width:clamp(80px, 40%, 53%);
 	object-fit: cover;
-	margin:1%;
+	margin: 2pt 0;
+	
 	@media screen and (max-width: 550px) {
 		display:inline-block;
 		max-height:none;
 		height:100%;
 		width:clamp(80px, 24%, 200px);
+		margin: 0 2pt;
 	}
 `;

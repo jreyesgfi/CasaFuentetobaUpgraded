@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import '@dotlottie/player-component';
 
 
-const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle }) => {
+const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle, handleClick }) => {
 
     // delay
     const [delayState, setDelayState] = useState(delayTime || 0);
@@ -18,7 +18,8 @@ const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle
     //     refHolder.current.remove();
     // };
     const StyledImage = imageStyle ? styled(imageStyle)`` : styled.img``;
-    const StyledWrapper = wrapperStyle ? styled(wrapperStyle)`position:relative;` : styled(imagesHolder)`position:relative;`;
+    const StyledWrapper = wrapperStyle ? styled(wrapperStyle)`position:relative;` :
+        (imagesHolder? styled(imagesHolder)`position:relative;`:LazyImageWrapper);
 
     useEffect(() => {
         if (delayTime !== 0 & delayTime !== undefined) {
@@ -39,7 +40,8 @@ const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle
                 onLoad={() => {
                 }}
                 src={src}
-                alt={alt} />
+                alt={alt}
+                onClick={handleClick||function(){}} />
         )
     }
     return (

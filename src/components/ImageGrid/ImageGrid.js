@@ -42,7 +42,8 @@ const ImageGrid = (props) => {
                 src={images[mainPhotoNum]['imgUrl']}
                 alt={'imagen casa fuentetoba grande'}
                 imageStyle={MainImageInGrid}
-                wrapperStyle={MainImageInGridWrapper}/>
+                wrapperStyle={MainImageInGridWrapper}
+                delayTime={1000}/>
             <OtherImagesInGridWrapper>
                 {imagesDisplayed().map((image, index) =>(
                     <LazyImage
@@ -52,7 +53,7 @@ const ImageGrid = (props) => {
                         imageStyle={OtherImageInGrid}
                         imagesHolder={OtherImageHolder}
                         delayTime={500*index}
-                        onClick={()=>{setMainPhotoNum((mainPhotoNum+index+1)%numImagesDisplayed)}}/>)
+                        handleClick={()=>{setMainPhotoNum((mainPhotoNum+index+1)%numImagesDisplayed)}}/>)
                 )}
             </OtherImagesInGridWrapper>
         </ImageGridWrapper>
