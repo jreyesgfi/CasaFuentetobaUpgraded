@@ -53,7 +53,7 @@ const CalendarSection = () => {
             handleClick: ()=>{emailPanelRef.current.scrollIntoView({ behavior: 'smooth'})},
             rotation: 0,
         }
-        setIndicationState({ ...indications });
+        setIndicationState([indications]);
     }, []);
 
     return (
@@ -89,7 +89,7 @@ const CalendarSection = () => {
                 />
 
                 {(okSignal === 1) && emailPanel === false &&
-                    <IndicationIcon referenceValues={indicationState}/>
+                    <IndicationIcon indications={indicationState}/>
                 }
             </SelectionDateWrapper>
             {okSignal === 1 &&

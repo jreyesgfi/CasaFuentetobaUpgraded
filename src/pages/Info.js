@@ -8,7 +8,7 @@ import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
 
 const Info = ()=>{
     //state of indication icon
-    const [indicationState, setIndicationState] = useState({show:0});
+    const [indicationState, setIndicationState] = useState([{show:0}]);
 
     // change if we are reaching other section
     useEffect(() => {
@@ -18,7 +18,7 @@ const Info = ()=>{
             rotation:-90,
             navigate:3,
         }
-        setIndicationState({...indications});
+        setIndicationState([indications]);
     },[]);
     
     return(
@@ -26,7 +26,7 @@ const Info = ()=>{
             <Description/>
             <Features/>
             <LongDescription/>
-            <IndicationIcon referenceValues={indicationState}/>
+            <IndicationIcon indications={indicationState}/>
         </>
     )
 }
