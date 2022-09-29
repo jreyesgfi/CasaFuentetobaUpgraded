@@ -30,6 +30,8 @@ export const LazyImageWrapper = styled.div`
 
 export const DotLottieWrapper = styled.div`
   position:absolute;
+  width:100%;
+  height:100%;
   z-index:100;
   inset:0;
   background:${globalColors.light.primary};

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Placeholder, LazyImageWrapper, DotLottieWrapper } from './LazyImageStyles';
+import { DotLottieWrapper } from './LazyImageStyles';
 import LazyLoad from "react-lazyload";
 import styled from 'styled-components';
 import '@dotlottie/player-component';
+import { motion } from 'framer-motion';
 
 
-const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle, handleClick }) => {
+const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick }) => {
 
     // delay
     const [delayState, setDelayState] = useState(delayTime || 0);
@@ -17,9 +18,19 @@ const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle
     // const removeHolder = () => {
     //     refHolder.current.remove();
     // };
-    const StyledImage = imageStyle ? styled(imageStyle)`` : styled.img``;
-    const StyledWrapper = wrapperStyle ? styled(wrapperStyle)`position:relative;` :
-        (imagesHolder? styled(imagesHolder)`position:relative;`:LazyImageWrapper);
+    const cssImageStyle = `
+        position: relative;
+        background-image: url(${src});
+        background-color: black;
+        background-size: cover;
+        background-position: center;
+    `;
+    const StyledImage =  styled(imageStyle)`${cssImageStyle}`;
+    const StyledWrapper = wrapperStyle ?
+        styled(wrapperStyle)`position:relative;` :
+        styled(imageStyle)`
+            ${cssImageStyle}
+        `;
 
     useEffect(() => {
         if (delayTime !== 0 & delayTime !== undefined) {
@@ -33,30 +44,14 @@ const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle
             wait();
         }
     }, [])
-    if (loading === 0 && !wrapperStyle) {
-        return (
-            <StyledImage
-                ref={refImage}
-                onLoad={() => {
-                }}
-                src={src}
-                alt={alt}
-                onClick={handleClick||function(){}} />
-        )
-    }
     return (
-        <StyledWrapper>
-            {delayState === 0 &&
-                <LazyLoad>
-                    <StyledImage
-                        ref={refImage}
-                        onLoad={() => {
-                            setLoading(0);
-                        }}
-                        src={src}
-                        alt={alt} />
-                </LazyLoad>
-            }
+        <StyledWrapper
+            as={motion.div}
+            animate={{ opacity: 1 }}
+            onClick={handleClick||function(){}}>
+            {wrapperStyle &&(
+                <StyledImage as={motion.div}></StyledImage>
+            )}
             {delayState !== 0 && (
                 <DotLottieWrapper>
                     <dotlottie-player
@@ -67,6 +62,7 @@ const LazyImage = ({ src, alt, imageStyle, imagesHolder, delayTime, wrapperStyle
                     />
                 </DotLottieWrapper>
             )}
+
         </StyledWrapper>
     );
 };
