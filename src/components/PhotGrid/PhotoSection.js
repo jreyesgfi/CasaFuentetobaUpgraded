@@ -10,7 +10,7 @@ const PhotoSection = forwardRef((props,ref)=>{
     return(
         <Section inverse padding="80px 0" ref={ref}>
             <ImageGrid selectedRoom={selectedRoom}
-            images={GalleryImagesData[selectedRoom]}/>
+            images={[...GalleryImagesData[selectedRoom]]}/>
             <RoomSelector roomDict={roomDict} selectRoom={(room)=> setSelectedRoom(room)} selectedRoom={selectedRoom}/>
         </Section>
     )

@@ -79,7 +79,6 @@ export const OtherImageHolder = styled.div`
 	}
 `
 export const OtherImageInGrid = styled.img`
-	background-color: ${globalColors.grey.light};
 	max-height:30%;
 	min-height:24%;
 	width:clamp(80px, 40%, 53%);

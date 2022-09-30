@@ -18,7 +18,7 @@ const Gallery = () => {
             await new Promise(() => {
                 setTimeout(() => {
                     setPhaseState(1);
-                }, 3500);
+                }, 0);
             });
         }
         waitToIndicate();
@@ -55,7 +55,7 @@ const Gallery = () => {
 
     return (
         <>
-            <PhotoSection ref={topRef} />
+            <PhotoSection ref={topRef}/>
             <VideoSection ref={bottomRef} />
             <IndicationIcon indications={indicationState} />
         </>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 import LazyImage from '../LazyImage/LazyImage';
 import { ImageGridWrapper, MainImageInGrid, MainImageInGridWrapper, OtherImageHolder, OtherImageInGrid, OtherImagesInGridWrapper } from './ImageGridStyle';
 
 const ImageGrid = (props) => {
-
 
     const images = props?.images || [];
     const numTotalPhotos = images.length;
@@ -12,6 +12,7 @@ const ImageGrid = (props) => {
     // numImagesDisplayed = Math.min(numImagesDisplayed,images.length-1);
 
     const [mainPhotoNum, setMainPhotoNum] = useState(0);
+    useEffect(() => { setMainPhotoNum(0) }, [images])
     //const [imageExpanded, setImageExpanded] = useState(false)
 
     //  prevent no photos
@@ -28,33 +29,40 @@ const ImageGrid = (props) => {
     // fix the range of images displayed
     const imagesDisplayed = () => {
         if (mainPhotoNum % numTotalPhotos + numImagesDisplayed + 1 < numTotalPhotos) {
-            return images.slice(mainPhotoNum+1, mainPhotoNum + numImagesDisplayed+1);
+            return images.slice(mainPhotoNum + 1, mainPhotoNum + numImagesDisplayed + 1);
         }
         // else
-        const firstSet = images.slice(mainPhotoNum+1);
+        const firstSet = images.slice(mainPhotoNum + 1);
         const secondStet = images.slice(0, numImagesDisplayed - firstSet.length);
-        return [...firstSet,...secondStet];
+        return [...firstSet, ...secondStet];
     }
 
     return (
         <ImageGridWrapper>
-            <LazyImage
-                src={images[mainPhotoNum]['imgUrl']}
-                alt={'imagen casa fuentetoba grande'}
-                imageStyle={MainImageInGrid}
-                wrapperStyle={MainImageInGridWrapper}
-                delayTime={1000}/>
-            <OtherImagesInGridWrapper>
-                {imagesDisplayed().map((image, index) =>(
+            <MainImageInGridWrapper >
+                <MainImageInGrid as={"div"}>
                     <LazyImage
+                        src={images[mainPhotoNum]['imgUrl']}
+                        alt={'imagen casa fuentetoba grande'}
+                        imageStyle={MainImageInGrid}
+                        delayTime={1000} />
+                </MainImageInGrid>
+            </MainImageInGridWrapper>
+
+            <OtherImagesInGridWrapper>
+                {imagesDisplayed().map((image, index) => (
+                    <OtherImageInGrid 
+                        as={"div"}
                         key={index}
+                    >
+                        <LazyImage
                         src={image['imgUrl']}
                         alt={'imagen casa fuentetoba previsualización'}
                         imageStyle={OtherImageInGrid}
-                        imagesHolder={OtherImageHolder}
-                        delayTime={500*index}
-                        handleClick={()=>{setMainPhotoNum((mainPhotoNum+index+1)%numImagesDisplayed)}}/>)
-                )}
+                        delayTime={1000 * index}
+                        handleClick={() => { setMainPhotoNum((mainPhotoNum + index + 1) % numImagesDisplayed) }} />
+                    </OtherImageInGrid>
+                ))}
             </OtherImagesInGridWrapper>
         </ImageGridWrapper>
     )

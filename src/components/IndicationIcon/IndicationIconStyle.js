@@ -12,10 +12,10 @@ const loadingAnimation = keyframes`
 `;
 export const IndicationsWrapper = styled(Row)`
   height: fit-content;
-  width: 100vw;
-  min-width: ${minimunSize};
+  width: fit-content;
   position: fixed;
   inset:auto 0 5vh 0;
+  margin:auto;
   justify-content: center;
   align-items: center;
   z-index:200;

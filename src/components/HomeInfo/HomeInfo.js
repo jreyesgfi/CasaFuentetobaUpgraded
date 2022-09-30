@@ -54,7 +54,7 @@ const HomeInfo = forwardRef((props,ref) => {
                     <HomeInfoMotion
                         initial={initial}
                         animate={animation}
-                        transition={{ duration: 0.6, delay:0.3}}>
+                        transition={transition}>
                         <PriceInfoSubtitle> 
                             precio por noche y persona
                         </PriceInfoSubtitle>

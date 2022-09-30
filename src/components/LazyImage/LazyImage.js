@@ -1,70 +1,114 @@
 import React, { useEffect, useState } from 'react';
-import { DotLottieWrapper } from './LazyImageStyles';
-import LazyLoad from "react-lazyload";
+import { animationVariants, cssImageStyle, cssWrapperStyle, DotLottieWrapper } from './LazyImageStyles';
+// import LazyLoad from "react-lazyload";
 import styled from 'styled-components';
 import '@dotlottie/player-component';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import IDGenerator from '../../util/IdGenerator';
 
+
+export const NormalDiv = styled(motion.div)`
+    position: absolute;
+    inset:0;
+    width: 300px;
+    height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    max-width:none;
+    max-height: none;
+    background-color: rgba(155, 155, 155);
+    z-index:100;
+`
 
 const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick }) => {
 
-    // delay
-    const [delayState, setDelayState] = useState(delayTime || 0);
-    const [loading, setLoading] = useState(1);
+    const [loading, setLoading] = useState(2);
+    useEffect(()=>{
+        async function wait() {
+            await new Promise(() => {
+                setTimeout(() => {
+                    setLoading(1)
+                }, delayTime);
+            })
+        };
+        wait();
+    },[])
 
-    // const refHolder = React.useRef();
-    const refImage = React.useRef();
+    const loadedDone = () => {
+        const animationTime = 2000
+        async function wait() {
+            await new Promise(() => {
+                setTimeout(() => {
 
-    // const removeHolder = () => {
-    //     refHolder.current.remove();
-    // };
-    const cssImageStyle = `
-        position: relative;
-        background-image: url(${src});
-        background-color: black;
-        background-size: cover;
-        background-position: center;
-    `;
-    const StyledImage =  styled(imageStyle)`${cssImageStyle}`;
-    const StyledWrapper = wrapperStyle ?
-        styled(wrapperStyle)`position:relative;` :
-        styled(imageStyle)`
-            ${cssImageStyle}
-        `;
+                    setLoading(0)
+                }, animationTime);
+            })
+        };
+        wait();
+    }
 
-    useEffect(() => {
-        if (delayTime !== 0 & delayTime !== undefined) {
-            async function wait() {
-                await new Promise(() => {
-                    setTimeout(() => {
-                        setDelayState(0)
-                    }, delayTime);
-                })
-            };
-            wait();
+    const animationVariants = {
+        0: {
+            backgroundColor: '#ffffff',
+            opacity: 0,
+            transition: { duration: 0.5 },
+            position:'absolute',
+            inset:0,
+            width:'100%',
+            height:'100%',
+            maxHeight:'100%',
+            maxWidth:'100%',
+            minHeight:'100%',
+            minWidth:'100%',
+            zIndex:100,
+        },
+        1: {
+            opacity: 1,
+            backgroundColor: '#ffffff',
+            transition: { duration: 1 }
         }
-    }, [])
+    }
+
+    const StyledImage = styled(imageStyle)`
+        ${cssImageStyle};
+        visibility: ${({loading})=>(loading===0?'visible':'hidden')};
+        `
+    ;
+    const StyledWrapper = motion.div
     return (
         <StyledWrapper
-            as={motion.div}
-            animate={{ opacity: 1 }}
+            initial={cssWrapperStyle}
             onClick={handleClick||function(){}}>
-            {wrapperStyle &&(
-                <StyledImage as={motion.div}></StyledImage>
-            )}
-            {delayState !== 0 && (
-                <DotLottieWrapper>
-                    <dotlottie-player
-                        src="./assets/lottie/dotSquaresJumping.lottie"
-                        autoplay
-                        loop
-                        style={{ height: '100%', width: '100%' }}
+            <AnimatePresence>
+                {loading > 0 && (
+                    <motion.div
+                        initial='0'
+                        animate='1'
+                        variants={animationVariants}
+                        exit='0'
+                        key={'holder'}
+                    >
+                        <dotlottie-player
+                            src="./assets/lottie/dotSquaresJumping.lottie"
+                            autoplay
+                            loop
+                            style={{ height: '100%', width: '100%' }}
+                        />
+                    </motion.div>)
+                }
+                {(loading < 2) && (
+                    <StyledImage
+                        key={'image'}
+                        onLoad={() => {
+                            loadedDone()
+                        }}
+                        loading={loading}
+                        src={src}
                     />
-                </DotLottieWrapper>
-            )}
-
+                )}
+            </AnimatePresence>
         </StyledWrapper>
-    );
+    )
 };
 
 
