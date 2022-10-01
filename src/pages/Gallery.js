@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {useInView} from 'react-intersection-observer';
+import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
 import PhotoSection from '../components/PhotGrid/PhotoSection';
 import VideoSection from '../components/VideoSection/VideoSection';
@@ -54,11 +55,11 @@ const Gallery = () => {
     }, [topInView, bottomInView, phaseState]);
 
     return (
-        <>
+        <AnimatedPage>
             <PhotoSection ref={topRef}/>
             <VideoSection ref={bottomRef} />
             <IndicationIcon indications={indicationState} />
-        </>
+        </AnimatedPage>
     )
 }
 export default Gallery;

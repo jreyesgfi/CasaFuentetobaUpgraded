@@ -41,7 +41,7 @@ export const MainImageInGrid = styled.img`
 `;
 
 export const OtherImagesInGridWrapper = styled(Row)`
-	border-left:2pt ${globalColors.grey.primary} solid;
+	border-left:2pt ${globalColors.grey.light} solid;
 	max-height:100%;
 	width:clamp(80px,20%, 400px);
 	flex-wrap: wrap;
@@ -52,7 +52,7 @@ export const OtherImagesInGridWrapper = styled(Row)`
 	padding:1% 0 5%;
 	box-sizing:content-box;
 	@media screen and (max-width: 550px) {
-		border-top:2pt ${globalColors.grey.primary} solid;
+		border-top:2pt ${globalColors.grey.light} solid;
 		border-left:none;
 		display:inline-block;
 		flex-direction: row;

@@ -35,7 +35,7 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
     },[])
 
     const loadedDone = () => {
-        const animationTime = 2000
+        const animationTime = 1500
         async function wait() {
             await new Promise(() => {
                 setTimeout(() => {
@@ -65,7 +65,7 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
         1: {
             opacity: 1,
             backgroundColor: '#ffffff',
-            transition: { duration: 1 }
+            transition: { duration: 0.5 }
         }
     }
 

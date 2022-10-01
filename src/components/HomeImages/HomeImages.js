@@ -41,12 +41,14 @@ const HomeImages = () => {
                     {data.map((image, index) => {
 
                         return (
-                            <LazyImage
+                            <ImageHome as={"div"}>
+                                <LazyImage
                                 key={index}
                                 imageStyle={ImageHome}
                                 src={image}
                                 alt={'Imagen del adosado'}
                                 delayTime={(index/3)%1*1200}/>
+                            </ImageHome>
                         )}
                     )}
                 </HomeImagesRow>

@@ -5,6 +5,7 @@ import HomeImages from '../components/HomeImages/HomeImages';
 import HomeInfo from '../components/HomeInfo/HomeInfo';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
 import { Section } from '../globalStyles';
+import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
 const Home = (props)=>{
 
@@ -51,7 +52,7 @@ const Home = (props)=>{
     },[topInView,bottomInView,phaseState]);
     
     return(
-        <>
+        <AnimatedPage>
            <Section position="relative" padding="0px 0px" smPadding="0px 0px" ref={topRef}>
                 <HomeImages/>
                 <Hero/>
@@ -59,7 +60,7 @@ const Home = (props)=>{
             <HomeInfo position="relative" inverse ref={bottomRef}/>
             <IndicationIcon indications={indicationState}/>
             {/* <Map></Map> */}
-        </>
+        </AnimatedPage>
     )
 }
 export default Home;

@@ -1,10 +1,11 @@
 import React from 'react';
+import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
 const Comments = ()=>{
     return(
-        <>
-        Página Comments
-        </>
+        <AnimatedPage>
+            Página Comments
+        </AnimatedPage>
     )
 }
 export default Comments;

@@ -4,6 +4,7 @@ import Features from '../components/Features/Features';
 import LongDescription from '../components/LongDescription/LongDescription';
 import NextButton from '../components/NextButton/NextButton';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
+import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
 
 const Info = ()=>{
@@ -22,12 +23,12 @@ const Info = ()=>{
     },[]);
     
     return(
-        <>
+        <AnimatedPage>
             <Description/>
             <Features/>
             <LongDescription/>
             <IndicationIcon indications={indicationState}/>
-        </>
+        </AnimatedPage>
     )
 }
 export default Info;

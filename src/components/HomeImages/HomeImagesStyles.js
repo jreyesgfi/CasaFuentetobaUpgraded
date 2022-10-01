@@ -22,6 +22,7 @@ export const HomeImagesRow = styled(motion.div)`
 export const ImageHome = styled.img`
 	position:relative;
 	height: 70vh;
+	min-width:90vw;
 	max-width: 110vw;
 	object-fit: cover;
 	vertical-align: middle;
