@@ -1,4 +1,4 @@
-import { createRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Section } from "../../globalStyles";
 import IDGenerator from "../../util/IdGenerator";
 import Calendar from "../Calendar/Calendar"
@@ -8,6 +8,7 @@ import MonthSelector from "../MonthSelector/MonthSelector"
 import React from "react";
 import IndicationIcon from "../IndicationIcon/IndicationIcon";
 import { SelectionDateWrapper, TotalPrice, TotalPriceWrapper } from "./CalendarSectionStyles";
+import {useInView} from 'react-intersection-observer';
 
 const CalendarSection = () => {
 
@@ -41,24 +42,35 @@ const CalendarSection = () => {
         setAlertRefState(IDGenerator());
     }
 
-
+    ////////////////////////
+    // REFS AND INDICATIONS
     //state of indication icon
     const [indicationState, setIndicationState] = useState({ show: 0 });
 
+    // set the inView detector
+    const { ref: topRef, inView: topInView } = useInView({ threshold: 0.8 });
+    const { ref: bottomRefCopy, inView: bottomInView } = useInView({ threshold: 0.2 });
+    useEffect(() => bottomRefCopy(emailPanelRef.current), [emailPanelRef.current])
+
     // change if we are reaching other section
     useEffect(() => {
-        var indications = {
+        var indicationArrow = {
             show: 1,
             iconState: 0,
-            handleClick: ()=>{emailPanelRef.current.scrollIntoView({ behavior: 'smooth'})},
-            rotation: 0,
+            rotation : 0,
+            handleClick: ()=>{emailPanelRef.current.scrollIntoView({ behavior: 'smooth'})}
         }
-        setIndicationState([indications]);
-    }, []);
+        if (!topInView) {
+            indicationArrow = {show:0};
+        }
+        setIndicationState([indicationArrow]);
+    }, [topInView, bottomInView]);
 
     return (
         <>
-            <SelectionDateWrapper inverse smPadding="40px 0 0" position='relative'padding="0">
+            <SelectionDateWrapper
+                inverse smPadding="40px 0 0" position='relative'padding="0"
+                ref={topRef}>
                 {(okSignal === 1)&&
                     <TotalPriceWrapper>
                         <TotalPrice>Precio total: {totalPrice}€</TotalPrice>
@@ -81,6 +93,7 @@ const CalendarSection = () => {
                     }}
                     rangeSelectedRef={rangeSelectedRef}
                 />
+                {(okSignal === 0) && <Section inverse></Section>}
                 <CustomAlert
                     display={alertObjRef?.current?.['display']}
                     message={alertObjRef?.current?.['message']}

@@ -26,7 +26,7 @@ const CustomAlert = (props) => {
     /**
     * init the timer
     */
-    async function initTheTimer(time = 10000) {
+    async function initTheTimer(time = 6000) {
 
         // track this alert
         const id = alertRef.current;

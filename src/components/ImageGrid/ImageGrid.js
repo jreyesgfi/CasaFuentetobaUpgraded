@@ -29,11 +29,11 @@ const ImageGrid = (props) => {
     // fix the range of images displayed
     const imagesDisplayed = () => {
         if (mainPhotoNum % numTotalPhotos + numImagesDisplayed + 1 < numTotalPhotos) {
-            return images.slice(mainPhotoNum + 1, mainPhotoNum + numImagesDisplayed + 1);
+            return images.slice(mainPhotoNum + 1, mainPhotoNum + numImagesDisplayed);
         }
         // else
         const firstSet = images.slice(mainPhotoNum + 1);
-        const secondStet = images.slice(0, numImagesDisplayed - firstSet.length);
+        const secondStet = images.slice(0, numImagesDisplayed - firstSet.length-1);
         return [...firstSet, ...secondStet];
     }
 
@@ -45,7 +45,7 @@ const ImageGrid = (props) => {
                         src={images[mainPhotoNum]['imgUrl']}
                         alt={'imagen casa fuentetoba grande'}
                         imageStyle={MainImageInGrid}
-                        delayTime={1000} />
+                        delayTime={0} />
                 </MainImageInGrid>
             </MainImageInGridWrapper>
 
@@ -59,7 +59,7 @@ const ImageGrid = (props) => {
                         src={image['imgUrl']}
                         alt={'imagen casa fuentetoba previsualización'}
                         imageStyle={OtherImageInGrid}
-                        delayTime={1000 * index}
+                        delayTime={300+300 * index}
                         handleClick={() => { setMainPhotoNum((mainPhotoNum + index + 1) % numImagesDisplayed) }} />
                     </OtherImageInGrid>
                 ))}

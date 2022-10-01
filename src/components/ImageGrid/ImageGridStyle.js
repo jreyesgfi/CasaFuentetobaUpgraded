@@ -83,7 +83,7 @@ export const OtherImageInGrid = styled.img`
 	min-height:24%;
 	width:clamp(80px, 40%, 53%);
 	object-fit: cover;
-	margin: 2pt 0;
+	margin: 2pt;
 	
 	@media screen and (max-width: 550px) {
 		display:inline-block;

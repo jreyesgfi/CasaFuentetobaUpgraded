@@ -11,7 +11,7 @@ export const SelectionDateWrapper = styled(Section)`
 `
 
 export const TotalPriceWrapper = styled.div`
-    z-index:100;
+    z-index:200;
     position: sticky;
     top: 40vh;
     bottom:3rem;

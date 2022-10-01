@@ -19,7 +19,7 @@ const Gallery = () => {
             await new Promise(() => {
                 setTimeout(() => {
                     setPhaseState(1);
-                }, 0);
+                }, 5000);
             });
         }
         waitToIndicate();

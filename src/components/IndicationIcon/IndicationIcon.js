@@ -13,7 +13,8 @@ const IndicationIcon = (props) => {
     const currentSettings = props?.indications || defaults;
     const iconsDictionary = {
         0: './assets/icons/greenDownArrow.png',
-        1: './assets/icons/redVideoRound.png'
+        1: './assets/icons/redVideoRound.png',
+        2: './assets/icons/blueInfo.png'
     };
 
 

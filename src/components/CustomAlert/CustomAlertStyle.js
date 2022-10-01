@@ -21,7 +21,7 @@ export const AlertWrapper = styled(motion.div)`
     width:43%;
     position:fixed;
     inset:80px 0 0 auto;
-    z-index:200;
+    z-index:150;
     background-color: ${({severity})=>severityStyle(severity)};
     padding:1rem 1.5rem;
     @media screen and (max-width: 600px) {

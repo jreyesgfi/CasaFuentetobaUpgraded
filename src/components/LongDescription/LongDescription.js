@@ -1,11 +1,11 @@
 import { Section, Text } from "../../globalStyles"
 import { LongDescriptionHeading, LongDescriptionWrapper,LongDescriptionText } from "./LongDescriptionStyles";
-import React from "react";
+import React, { forwardRef } from "react";
 import { descriptionText } from "../../data/DescriptionData";
 
-const LongDescription = () =>{
+const LongDescription = forwardRef((props,ref) =>{
     return(
-        <Section padding="125px 0 40px" smPadding= "120px 0 40px">
+        <Section padding="125px 0 40px" smPadding= "120px 0 40px" ref={ref}>
             <LongDescriptionWrapper>
                 <LongDescriptionHeading>
                     Una casa con encanto
@@ -22,5 +22,5 @@ const LongDescription = () =>{
             </LongDescriptionWrapper>
         </Section>
     )
-}
+})
 export default LongDescription;
