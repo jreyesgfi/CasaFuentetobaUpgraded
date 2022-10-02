@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../../globalStyles';
+import { Container, minimunSize } from '../../globalStyles';
 import { motion } from 'framer-motion';
 import { globalColors } from '../../globalStyles';
 
@@ -22,7 +22,7 @@ export const HomeImagesRow = styled(motion.div)`
 export const ImageHome = styled.img`
 	position:relative;
 	height: 70vh;
-	min-width:90vw;
+	width:clamp(${minimunSize}, 50vw, 100vh);
 	max-width: 110vw;
 	object-fit: cover;
 	vertical-align: middle;

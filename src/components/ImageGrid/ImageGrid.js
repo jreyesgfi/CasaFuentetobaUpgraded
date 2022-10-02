@@ -12,7 +12,11 @@ const ImageGrid = (props) => {
     // numImagesDisplayed = Math.min(numImagesDisplayed,images.length-1);
 
     const [mainPhotoNum, setMainPhotoNum] = useState(0);
-    useEffect(() => { setMainPhotoNum(0) }, [images])
+    const [selectedRoomState, setSelectedRoomState] = useState('');
+    useEffect(() => {
+        setMainPhotoNum(0);
+        setSelectedRoomState(props.selectedRoom);
+     }, [props.selectedRoom])
     //const [imageExpanded, setImageExpanded] = useState(false)
 
     //  prevent no photos
@@ -26,22 +30,25 @@ const ImageGrid = (props) => {
         setMainPhotoNum(numTotalPhotos - 1);
     }
 
-    // fix the range of images displayed
-    const imagesDisplayed = () => {
-        if (mainPhotoNum % numTotalPhotos + numImagesDisplayed + 1 < numTotalPhotos) {
-            return images.slice(mainPhotoNum + 1, mainPhotoNum + numImagesDisplayed);
-        }
-        // else
-        const firstSet = images.slice(mainPhotoNum + 1);
-        const secondStet = images.slice(0, numImagesDisplayed - firstSet.length-1);
-        return [...firstSet, ...secondStet];
-    }
+    // // fix the range of images displayed
+    // const imagesDisplayed = (mainPhotoNum,numTotalPhotos,numImagesDisplayed) => {
+    //     if (mainPhotoNum % numTotalPhotos + numImagesDisplayed + 1 < numTotalPhotos) {
+    //         return images.slice(mainPhotoNum + 1, mainPhotoNum + numImagesDisplayed);
+    //     }
+    //     // else
+    //     const firstSet = images.slice(mainPhotoNum + 1);
+    //     const secondStet = images.slice(0, numImagesDisplayed - firstSet.length-1);
+    //     return [...firstSet, ...secondStet];
+    // }
 
     return (
         <ImageGridWrapper>
+           {selectedRoomState===props.selectedRoom && (
+            <>
             <MainImageInGridWrapper >
                 <MainImageInGrid as={"div"}>
                     <LazyImage
+                        onClick={console.log(mainPhotoNum,props.selectedRoom)}
                         src={images[mainPhotoNum]['imgUrl']}
                         alt={'imagen casa fuentetoba grande'}
                         imageStyle={MainImageInGrid}
@@ -50,7 +57,7 @@ const ImageGrid = (props) => {
             </MainImageInGridWrapper>
 
             <OtherImagesInGridWrapper>
-                {imagesDisplayed().map((image, index) => (
+                {images.map((image, index) => (
                     <OtherImageInGrid 
                         as={"div"}
                         key={index}
@@ -60,10 +67,12 @@ const ImageGrid = (props) => {
                         alt={'imagen casa fuentetoba previsualización'}
                         imageStyle={OtherImageInGrid}
                         delayTime={300+300 * index}
-                        handleClick={() => { setMainPhotoNum((mainPhotoNum + index + 1) % numImagesDisplayed) }} />
+                        handleClick={() => { setMainPhotoNum((index) % numImagesDisplayed) }} />
                     </OtherImageInGrid>
                 ))}
             </OtherImagesInGridWrapper>
+            </>
+            )}
         </ImageGridWrapper>
     )
 }
