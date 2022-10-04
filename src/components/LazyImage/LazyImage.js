@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { animationVariants, cssImageStyle, cssWrapperStyle, DotLottieWrapper } from './LazyImageStyles';
 // import LazyLoad from "react-lazyload";
 import styled from 'styled-components';
-import '@dotlottie/player-component';
 import { AnimatePresence, motion } from 'framer-motion';
-import IDGenerator from '../../util/IdGenerator';
+
+import dynamic from 'next/dynamic';
+
 
 
 export const NormalDiv = styled(motion.div)`
@@ -88,12 +89,7 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
                         exit='0'
                         key={'holder'}
                     >
-                        <dotlottie-player
-                            src="./assets/lottie/dotSquaresJumping.lottie"
-                            autoplay
-                            loop
-                            style={{ height: '100%', width: '100%' }}
-                        />
+                        
                     </motion.div>)
                 }
                 {(loading < 2) && (

@@ -42,7 +42,7 @@ export const globalColors = {
 	}
 }
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
     
     /*general style*/
     *{

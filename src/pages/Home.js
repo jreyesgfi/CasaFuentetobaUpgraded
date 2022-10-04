@@ -4,10 +4,18 @@ import Hero from '../components/Hero/Hero';
 import HomeImages from '../components/HomeImages/HomeImages';
 import HomeInfo from '../components/HomeInfo/HomeInfo';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
-import { Section } from '../globalStyles';
+import { Section } from '../globalstyles';
 import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
 const Home = (props)=>{
+
+
+    const [hydrated, setHydrated] = React.useState(false);
+	React.useEffect(() => {
+		// This forces a rerender, so the date is rendered
+		// the second time but not the first
+		setHydrated(true);
+	}, []);
 
     //state of indication icon
     const [indicationState, setIndicationState] = useState([{show:0}]);
@@ -25,6 +33,7 @@ const Home = (props)=>{
             });
         }
         waitToIndicate();
+        return 
     },[])
 
     // set the inView detector
@@ -50,6 +59,11 @@ const Home = (props)=>{
 
         setIndicationState([indications]);
     },[topInView,bottomInView,phaseState]);
+
+    if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
     
     return(
         <AnimatedPage>

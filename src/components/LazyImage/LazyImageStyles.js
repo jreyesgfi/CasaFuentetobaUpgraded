@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { nodeName } from 'jquery';
 import styled from 'styled-components';
 // , { keyframes }
-import { globalColors } from '../../globalStyles';
+import { globalColors } from '../../globalstyles';
 
 // const loadingAnimation = keyframes`
 //   0% {

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { globalColors, MainHeading, Section } from '../../globalStyles';
+import { globalColors, MainHeading, Section } from '../../globalstyles';
 
 const paddingLeft= '30pt';
 

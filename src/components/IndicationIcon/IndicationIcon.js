@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import data from "../../data/NavbarData";
 import { IndicationIconImg, IndicationIconWrapper, IndicationsWrapper } from './IndicationIconStyle';
 
@@ -19,12 +19,12 @@ const IndicationIcon = (props) => {
 
 
     //navigation
-    const navigate = useNavigate();
+    const navigate = useRouter();
     const correctHandleClick = (indication)=>{
         var handleClick = indication?.handleClick;
         if (indication.navigate !== undefined){
             const newStep = indication.navigate;
-            handleClick = () => navigate(data[newStep].to)
+            handleClick = () => navigate.replace(data[newStep].to)
         }
         return handleClick;
     }

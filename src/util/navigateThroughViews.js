@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import React from "react";
 
 // scroll to an element
@@ -25,11 +25,11 @@ export const scrollToRef = (ref) => {
     }
 }
 
-export const ScrollToTop = (props) => {
-    const location = useLocation();
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [location]);
+// export const ScrollToTop = (props) => {
+//     const location = useLocation();
+//     useEffect(() => {
+//       window.scrollTo(0, 0);
+//     }, [location]);
   
-    return <>{props.children}</>
-  };
+//     return <>{props.children}</>
+//   };

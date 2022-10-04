@@ -12,7 +12,7 @@ import {
     NavItem,
     NavTitle
 } from './NavbarStyle.js'
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import data from '../../data/NavbarData';
 import { globalColors } from "../../globalStyles.js";
@@ -23,7 +23,7 @@ const Navbar = () => {
     const [show, setShow] = useState(false);
 
     //
-    let navigate = useNavigate();
+    let navigate = useRouter();
 
     // click to open/close the menu
     const handleMenuClick = () => {
@@ -42,7 +42,7 @@ const Navbar = () => {
     // click on item 
     const handleItemClick = (id,to) => {
         // add the track of the view
-        navigate(to);
+        navigate.replace(to);
 
         // close the menu
         setShow(false)
@@ -53,7 +53,7 @@ const Navbar = () => {
         <IconContext.Provider value={{ color: `${globalColors.light.primary}` }}>
             <Nav>
                 <NavbarContainer>
-                    <NavLogo to='/'>
+                    <NavLogo href='/'>
                         <NavIcon src='./assets/icons/black-app-icon.svg' alt='logo'>
                         </NavIcon>
                         <NavTitle>

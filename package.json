@@ -5,9 +5,11 @@
   "homepage": "http://lacasadefuentetoba.es/",
   "dependencies": {
     "@dotlottie/player-component": "^1.1.1",
+    "csv": "^6.2.0",
     "framer-motion": "6.5.1",
     "jquery": "^3.6.1",
     "jsx": "^0.9.89",
+    "next": "^12.3.1",
     "papaparse": "^5.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -15,15 +17,12 @@
     "react-intersection-observer": "^9.4.0",
     "react-is": "16.8",
     "react-lazyload": "^3.2.0",
-    "react-router-dom": "6.3.0",
-    "react-scripts": "5.0.1",
     "styled-components": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [

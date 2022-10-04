@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GlobalStyles, { MainHeading, Column, Row, globalColors } from "../../globalStyles";
+import GlobalStyles, { MainHeading, Column, Row, globalColors } from "../../globalstyles";
 import {motion} from 'framer-motion';
 
 

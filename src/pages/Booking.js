@@ -4,12 +4,23 @@ import CalendarInstructions from '../components/CalendarInstructions/CalendarIns
 import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
 const Booking = ()=>{
+    const [hydrated, setHydrated] = React.useState(false);
+	React.useEffect(() => {
+		// This forces a rerender, so the date is rendered
+		// the second time but not the first
+		setHydrated(true);
+	}, []);
 
-        return(
-            <AnimatedPage>
-                <CalendarInstructions></CalendarInstructions>
-                <CalendarSection/>
-            </AnimatedPage>
-        )
+    if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
+
+    return(
+        <AnimatedPage>
+            <CalendarInstructions></CalendarInstructions>
+            <CalendarSection/>
+        </AnimatedPage>
+    )
 }
 export default Booking;

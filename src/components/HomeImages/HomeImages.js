@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { data } from '../../data/HomeImagesData';
-import DividerWaves from '../Dividers/DividerWave';
-import { globalColors } from '../../globalStyles';
+import DividerWaves from '../dividers/DividerWave';
+import { globalColors } from '../../globalstyles';
 
 import { HomeImagesWrapper, ImagesRow, ImageHome, HomeImagesRow } from './HomeImagesStyles';
-import LazyImage from '../LazyImage/LazyImage';
+import LazyImage from '../lazyimage/LazyImage';
 
 const HomeImages = () => {
 
-    const speedFactor = 1000 / window.innerWidth
+    var speedFactor = 1
+    if (typeof window !== "undefined") {
+        speedFactor = 1000 / window.innerWidth
+      }
 
     const initial = {
         x: 0

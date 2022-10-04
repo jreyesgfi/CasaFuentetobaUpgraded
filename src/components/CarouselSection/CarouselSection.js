@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import ImageCarousel from '../ImageCarousel/ImageCarousel';
+import ImageCarousel from '../imagecarousel/ImageCarousel';
 import { ImagesCarouselData, roomDict } from '../../data/GalleryData';
 import { Section } from '../../globalStyles';
-import NextButton from '../../components/NextButton/NextButton';
-import RoomSelector from '../../components/RoomSelector/RoomSelector';
+import NextButton from '../NextButton/NextButton';
+import RoomSelector from '../RoomSelector/RoomSelector';
 
 const CarouselSection = ()=>{
     const [selectedRoom, setSelectedRoom] = useState('HABITACIONES');

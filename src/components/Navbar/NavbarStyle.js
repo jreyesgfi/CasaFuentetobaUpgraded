@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {Container, globalColors, MainHeading} from '../../globalStyles';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 
 export const Nav = styled.nav`
 	position:fixed;

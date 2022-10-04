@@ -1,4 +1,4 @@
-import { Section } from "../../globalStyles";
+import { Section } from "../../globalstyles";
 import { GalleryVideo, GalleryVideoWrapper } from "./VideoSectionStyles";
 
 import React, { forwardRef } from "react";

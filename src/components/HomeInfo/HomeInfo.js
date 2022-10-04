@@ -1,4 +1,4 @@
-import { Heading, Section, Text } from "../../globalStyles"
+import { Heading, Section, Text } from "../../globalstyles"
 import { HomeInfoImage, HomeInfoImageWrapper, HomeInfoMotion, HomeInfoWrapper, ImgHomeInfo, PriceInfoBackground, PriceInfoBackgroundContainer, PriceInfoNumber, PriceInfoSubtitle, PriceInfoWrapper } from "./HomeInfoStyles";
 import { sumarizedPrice } from "../../data/HomeData";
 import DividerWaves from "../Dividers/DividerWave";

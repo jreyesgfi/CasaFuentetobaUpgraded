@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from 'react';
 import { GalleryImagesData, roomDict } from '../../data/GalleryData';
-import { Section } from '../../globalStyles';
+import { Section } from '../../globalstyles';
 import NextButton from '../NextButton/NextButton';
-import RoomSelector from '../RoomSelector/RoomSelector';
+import RoomSelector from '../roomselector/RoomSelector';
 import ImageGrid from '../ImageGrid/ImageGrid';
 
 const PhotoSection = forwardRef((props,ref)=>{

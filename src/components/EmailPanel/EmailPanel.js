@@ -90,7 +90,7 @@ const EmailPanel = forwardRef((props, ref) => {
                                 </EmailPanelButton>
                                 <EmailPanelButton
                                     onClick={() => {
-                                        if (step === 1) {
+                                        if (step === 1 && typeof window !== "undefined") {
                                             window.open(
                                                 `mailto:${emailDirection}?subject=Reserva para ${selectedDays}&body=Hola, soy ${nombreCompleto}. Quería solicitar la reserva de la casa rural para el periodo ${selectedDays}. \n${formObjectRef.current?.['phone'] ? 'Mi número de teléfono es el ' + formObjectRef.current?.['phone'] + '. ' : ''}\n${formObjectRef.current?.['comments'] ? 'Comentarios: ' + formObjectRef.current?.['comments'] + '. ' : ''}
                                          `
