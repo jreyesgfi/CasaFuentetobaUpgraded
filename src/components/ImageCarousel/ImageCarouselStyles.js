@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { globalColors } from '../../globalStyles';
+import { globalColors } from '../../GlobalStyles';
 
 
 export const CarouselImagesWrapper = styled.div`

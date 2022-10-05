@@ -7,7 +7,7 @@ import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
 import { Section } from '../globalstyles';
 import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 
-const Home = (props)=>{
+const Home2 = (props)=>{
 
 
     const [hydrated, setHydrated] = React.useState(false);

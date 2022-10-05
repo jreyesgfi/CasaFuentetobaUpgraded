@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoArrowBackCircle, IoArrowForwardCircle } from 'react-icons/io5';
 // import { IconContext } from 'react-icons';
-import { Row, Heading, Section, TextWrapper, globalColors } from '../../globalStyles';
+import { Row, Heading, Section, TextWrapper, globalColors } from '../../GlobalStyles';
 import { CarouselMainImage, CarouselImagesWrapper, CarouselSecondaryImage, MaskCarouselImage, CarouselControlWrapper, ImageExpandedWrapper, ExpandedImage } from './ImageCarouselStyles';
 
 const ImageCarousel = (props) => {

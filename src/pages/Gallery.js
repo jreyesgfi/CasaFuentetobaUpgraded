@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {useInView} from 'react-intersection-observer';
 import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
-import PhotoSection from '../components/PhotGrid/PhotoSection';
+import PhotoSection from '../components/PhotoGrid/PhotoSection';
 import VideoSection from '../components/VideoSection/VideoSection';
 
 const Gallery = () => {

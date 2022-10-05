@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ImageCarousel from '../imagecarousel/ImageCarousel';
+import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { ImagesCarouselData, roomDict } from '../../data/GalleryData';
-import { Section } from '../../globalStyles';
+import { Section } from '../../GlobalStyles';
 import NextButton from '../NextButton/NextButton';
 import RoomSelector from '../RoomSelector/RoomSelector';
 

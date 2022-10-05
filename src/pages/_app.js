@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
-// import './globalFonts.css';
+//import './globalFonts.css';
 import {GlobalStyles} from "./../globalstyles";
+import Navbar from "../components/Navbar/Navbar";
+import { Head } from "next/document";
 
 function App({Component, pageProps}) {
-  console.log(globalThis?.window)
-  if (globalThis?.window === undefined){
-    return (
-    <>
-    </>)
-  }
+  const [hydrated, setHydrated] = React.useState(false);
+	React.useEffect(() => {
+		// This forces a rerender, so the date is rendered
+		// the second time but not the first
+		setHydrated(true);
+	}, []);
+
+    if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
   return (
   
-    <>
-      <GlobalStyles/>
-      <Component {...pageProps} />
-    </>
-    
+    <div>
+
+      <body>
+        <Navbar />
+        <GlobalStyles/>
+        <Component {...pageProps} />
+      </body>
+    </div>
   )
 }
 

@@ -48,17 +48,31 @@ const Navbar = () => {
         setShow(false)
     }
 
+    const [hydrated, setHydrated] = React.useState(false);
+	React.useEffect(() => {
+		// This forces a rerender, so the date is rendered
+		// the second time but not the first
+		setHydrated(true);
+	}, []);
+
+    if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
+
 
     return (
         <IconContext.Provider value={{ color: `${globalColors.light.primary}` }}>
             <Nav>
                 <NavbarContainer>
                     <NavLogo href='/'>
-                        <NavIcon src='./assets/icons/black-app-icon.svg' alt='logo'>
-                        </NavIcon>
-                        <NavTitle>
-                            Casa Fuentetoba
-                        </NavTitle>
+                        <>
+                            <NavIcon src='./assets/icons/black-app-icon.svg' alt='logo'>
+                            </NavIcon>
+                            <NavTitle>
+                                Casa Fuentetoba
+                            </NavTitle>
+                        </>
                     </NavLogo>
                     <MobileIcon onClick={() => handleMenuClick()}>
                         {show ? <FaTimes /> : <CgMenuRight />}

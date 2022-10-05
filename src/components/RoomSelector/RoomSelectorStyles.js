@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from 'framer-motion';
-import { globalColors, Row } from "../../globalstyles";
+import { globalColors, Row } from "../../GlobalStyles";
 
 export const RoomButtonsContainer = styled(Row)`
     flex-wrap:wrap;

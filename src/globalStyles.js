@@ -43,6 +43,11 @@ export const globalColors = {
 }
 
 export const GlobalStyles = createGlobalStyle`
+	/* general fonts*/
+	@font-face { font-family: primary-light; src: url('/assets/fonts/MPLUS1/MPLUS1-Thin.ttf') }
+	@font-face { font-family: primary-normal; src: url('/assets/fonts/MPLUS1/MPLUS1-Light.ttf') }
+	@font-face { font-family: primary-bold; src: url('/assets/fonts/MPLUS1/MPLUS1-Bold.ttf') }
+	@font-face { font-family: primary-semibold; src: url('/assets/fonts/MPLUS1/MPLUS1-SemiBold.ttf') }
     
     /*general style*/
     *{
