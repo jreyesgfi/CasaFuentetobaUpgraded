@@ -19,12 +19,9 @@ function App({Component, pageProps}) {
   return (
   
     <div>
-
-      <body>
         <Navbar />
         <GlobalStyles/>
         <Component {...pageProps} />
-      </body>
     </div>
   )
 }

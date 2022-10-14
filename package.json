@@ -9,6 +9,7 @@
     "framer-motion": "6.5.1",
     "jquery": "^3.6.1",
     "jsx": "^0.9.89",
+    "lottie-web": "^5.9.6",
     "next": "^12.3.1",
     "papaparse": "^5.3.2",
     "react": "^18.2.0",

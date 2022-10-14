@@ -53,8 +53,10 @@ export const daysOfEachMonth = {
     *****************************/
 
 export async function uploadDaysData(){
+    const csv = await fetch('data_exposed/CalendarDayData.csv')
+    const csvText = String(csv);
     const daysPromise = new Promise((resolve) => {
-        Papa.parse('./CalendarDayData.csv', {
+        Papa.parse(csvText, {
             header: true,
             skipEmptyLines: true,
             download: true,
