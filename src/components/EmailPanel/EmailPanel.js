@@ -45,15 +45,19 @@ const EmailPanel = forwardRef((props, ref) => {
                                 <>
                                     <FormInput
                                         label={'Nombre'}
+                                        originalValue={formObjectRef.current?.['name']}
                                         setValue={(value) => { formObjectRef.current['name'] = value }}
                                     />
                                     <FormInput
                                         label={'Apellidos'}
+                                        originalValue={formObjectRef.current?.['firstName']}
                                         setValue={(value) => { formObjectRef.current['firstName'] = value }}
                                     />
                                     <FormInput
                                         label={'Teléfono (opcional)'}
+                                        originalValue={formObjectRef.current?.['phone']}
                                         type='number'
+                                        phone={true}
                                         setValue={(value) => { formObjectRef.current['phone'] = value }}
                                     />
                                 </>
@@ -70,6 +74,7 @@ const EmailPanel = forwardRef((props, ref) => {
                                     </NameInfoWrapper>
                                     <FormInput
                                         label={'Comentarios'}
+                                        originalValue={formObjectRef.current?.['comments']}
                                         longText={true}
                                         setValue={(value) => { formObjectRef.current['comments'] = value }}
                                     />

@@ -15,11 +15,15 @@ export const BookingInfoWrapper = styled(Column)`
     margin:1rem 0 2rem;
     >*{
         color:${globalColors.light.primary};
+        font-size:min(18pt,3vw);
     }
 `;
 
 export const NameInfoWrapper = styled(Column)`
     margin:-1rem 0 2rem;
+    >*{
+        font-size:min(18pt,3vw);
+    }
 `;
 
 export const EmailFormWrapper = styled(Column)``;
@@ -28,19 +32,18 @@ export const EmailFormButtonsWrapper = styled(Row)`
     padding:1rem 1rem 1rem 0;
     flex-wrap: wrap;
     gap:1rem;
-    align-items:center;
+    align-items:space-evently;
     justify-content:left;
     @media screen and (max-width: 500px) {
-        flex-direction:column-reverse;
-        margin-right:auto;
+        margin-right:0;
     }
 `;
 
 export const EmailPanelButton = styled(Button)`
     border:none;
-    margin-right: 1rem;
-    width: fit-content;
-    min-width:150px;
+    min-width:max(40%, 100px);
+    margin:0;
+    padding: 0.8rem 0.7rem;
 `;
 export const ConfirmationText = styled(Text)`
     text-align:center;

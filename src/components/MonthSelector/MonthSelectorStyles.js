@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { globalColors, MainHeading, Row } from "../../globalStyles";
 
 export const MonthSelectorWrapper = styled.div`
-    max-width:800px;
+    
 `;
 
 export const MonthSelectorIcon = styled.img`

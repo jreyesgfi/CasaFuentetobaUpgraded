@@ -39,7 +39,9 @@ export const NavTitle = styled(MainHeading)`
 	font-family: primary-bold, sans-serif;
 	text-align:left;
 	max-width:40px;
-	margin:0;
+	margin:auto auto auto 0;
+	height:fit-content;
+
 `;
 
 export const NavIcon = styled.img`

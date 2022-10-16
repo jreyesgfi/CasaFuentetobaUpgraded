@@ -57,6 +57,7 @@ export const GlobalStyles = createGlobalStyle`
 		color:${globalColors.dark.primary};
         font-family: primary-normal, sans-serif;
 		font-display: auto;
+		
     }
 
 `;
