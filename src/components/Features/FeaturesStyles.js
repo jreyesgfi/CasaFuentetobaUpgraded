@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, MainHeading, Row, Text } from "../../globalStyles";
+import { Column, Heading, Row, Text } from "../../globalStyles";
 
 export const FeaturesWrapper = styled(Row)`
     padding:0rem 0 0 2.5rem;
@@ -39,9 +39,10 @@ export const FeatureIcon = styled.img`
     margin-top:auto;
 `;
 
-export const FeatureHeading = styled(MainHeading)`
+export const FeatureHeading = styled(Heading)`
     font-size:clamp(1rem, 1.6vw, 1.8rem);
     text-align:left;
+    margin: 5pt 0;
 `;
 
 export const FeatureText = styled(Text)`

@@ -1,4 +1,4 @@
-import { IconContext } from 'react-icons/lib/esm/iconContext';
+// import { IconContext } from 'react-icons/lib/esm/iconContext';
 import { useEffect, useRef, useState } from 'react';
 import { AlertWrapper } from './CustomAlertStyle';
 import {MdDone}  from "react-icons/md";
@@ -106,9 +106,9 @@ const CustomAlert = (props) => {
             transition-duration="2s"
             onClose={() => { setAlertDisplayLocal(false); alertRef.current = 0; }}>
             <p>{alertMessage}</p>
-            <IconContext.Provider value={{ size: 'clamp(7rem, 7rem, 100px)', color: `${globalColors.dark.primary}`}}>
+            {/* <IconContext.Provider value={{ size: 'clamp(7rem, 7rem, 100px)', color: `${globalColors.dark.primary}`}}>
                 {iconChosen()}
-            </IconContext.Provider>
+            </IconContext.Provider> */}
         </AlertWrapper>
     )
 }

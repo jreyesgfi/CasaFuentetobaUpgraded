@@ -7,6 +7,14 @@ import { uploadDaysData } from "../../data/CalendarData";
 import { CalendarWrapper, DayCell, DayCellBody, DayCellHeader, DayCellsWrapper, DayCellWrapper, WeekDayCell, WeekDaysWrapper } from "./CalendarStyles";
 import React from "react";
 
+export async function getServerSideProps(context){
+    const query = context.query;
+    console.log('Hiiiii',query);
+    return {
+        query
+    }
+}
+
 const Calendar = (props) => {
 
     /**

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { globalColors, Row } from '../../globalStyles';
+import { globalColors, Row } from '../../GlobalStyles';
 
 
 

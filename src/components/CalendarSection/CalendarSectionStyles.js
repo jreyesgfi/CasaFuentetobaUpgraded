@@ -6,8 +6,9 @@ import { globalColors, minimunSize, Section} from "../../globalStyles";
 // `;
 export const SelectionDateWrapper = styled(Section)`
     overflow: visible;
-    margin-top: 3rem;
-    max-width: 100vw;
+    margin: 3rem 0;
+    width: 100%;
+    max-width:100%;
 `
 
 export const TotalPriceWrapper = styled.div`
@@ -24,7 +25,6 @@ export const TotalPriceWrapper = styled.div`
 `; 
 
 export const TotalPrice = styled.p`
-
     width: fit-content;
     margin:auto;
     padding: 2rem;

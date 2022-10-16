@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Container, minimunSize } from '../../globalStyles';
+import { Container, minimunSize } from '../../globalstyles';
 import { motion } from 'framer-motion';
-import { globalColors } from '../../globalStyles';
+import { globalColors } from '../../globalstyles';
 
 
 export const HomeImagesWrapper = styled.div`

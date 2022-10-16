@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { globalColors, MainHeading, Row } from "../../globalStyles";
+import { Heading} from "../../globalStyles";
 
 export const DescriptionWrapper = styled.div`
      position:relative;
@@ -7,8 +7,9 @@ export const DescriptionWrapper = styled.div`
      padding-left:2rem;
 `;
 
-export const DescriptionHeading = styled(MainHeading)`
+export const DescriptionHeading = styled(Heading)`
     text-align:left;
     width:fit-content;
     display:block;
+    padding-bottom:1rem;
 `;

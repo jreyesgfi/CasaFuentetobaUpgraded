@@ -1,5 +1,5 @@
 import Papa from "papaparse";
-import daysCalendar from "./CalendarData.csv";
+
 
 export const priceMin = 600;
 export const weekDiscount = 0.34;
@@ -53,8 +53,10 @@ export const daysOfEachMonth = {
     *****************************/
 
 export async function uploadDaysData(){
+    // const csv = await fetch('data_exposed/CalendarDayData.csv')
+    // const csvText = String(csv);
     const daysPromise = new Promise((resolve) => {
-        Papa.parse(daysCalendar, {
+        Papa.parse('data_exposed/CalendarDayData.csv', {
             header: true,
             skipEmptyLines: true,
             download: true,

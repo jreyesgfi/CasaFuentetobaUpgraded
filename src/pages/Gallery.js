@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {useInView} from 'react-intersection-observer';
 import AnimatedPage from '../components/AnimatedPage/AnimatedPage';
 import IndicationIcon from '../components/IndicationIcon/IndicationIcon';
-import PhotoSection from '../components/PhotGrid/PhotoSection';
+import PhotoSection from '../components/PhotoGrid/PhotoSection';
 import VideoSection from '../components/VideoSection/VideoSection';
 
 const Gallery = () => {
@@ -54,12 +54,24 @@ const Gallery = () => {
         setIndicationState([indicationVideo,indicationArrow]);
     }, [topInView, bottomInView, phaseState]);
 
+    const [hydrated, setHydrated] = React.useState(false);
+	React.useEffect(() => {
+		// This forces a rerender, so the date is rendered
+		// the second time but not the first
+		setHydrated(true);
+	}, []);
+
+    if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
+
     return (
-        <AnimatedPage>
+        <>
             <PhotoSection ref={topRef}/>
             <VideoSection ref={bottomRef} />
             <IndicationIcon indications={indicationState} />
-        </AnimatedPage>
+        </>
     )
 }
 export default Gallery;

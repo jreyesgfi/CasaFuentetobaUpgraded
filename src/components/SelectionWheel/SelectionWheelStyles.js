@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { globalColors, MainHeading } from "../../globalStyles";
+import { globalColors, Heading } from "../../globalStyles";
 
 export const SelectionWheelWrapper = styled.div`
     width:40%;
@@ -22,7 +22,7 @@ export const SecondaryElementText = styled.p`
     user-select: none
 `;
 
-export const CurrentElementText = styled(MainHeading)`
+export const CurrentElementText = styled(Heading)`
     color:${globalColors.dark.primary};
     font-size:clamp(1.7rem, 1.7vw, 2.5rem);
     text-align: left;

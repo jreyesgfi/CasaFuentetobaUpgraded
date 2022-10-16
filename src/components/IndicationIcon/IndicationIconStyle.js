@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { globalColors, minimunSize, Row } from "../../globalStyles";
+import { globalColors, minimunSize, Row } from "../../globalstyles";
 
 const loadingAnimation = keyframes`
   0% {

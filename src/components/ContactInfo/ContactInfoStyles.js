@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, MainHeading, Row, Text } from "../../globalStyles";
+import { Column, Heading, Row, Text } from "../../globalStyles";
 
 export const ContactInfoWrapper = styled(Column)`
     padding:0rem 0 0 5rem;
@@ -55,7 +55,7 @@ export const ContactInfoIcon = styled.img`
     }
 `;
 
-export const ContactInfoHeading = styled(MainHeading)`
+export const ContactInfoHeading = styled(Heading)`
     font-size:clamp(0.8rem, 1.5vw, 2rem);
     text-align:left;
     @media screen and (min-width: 700px) {
@@ -64,6 +64,6 @@ export const ContactInfoHeading = styled(MainHeading)`
 `;
 
 export const ContactInfoText = styled(Text)`
-    font-size:10pt;
+    font-size:max(10pt, 0.8vw);
     width:100%;
 `;

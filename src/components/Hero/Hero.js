@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-import { NextButton, Container, MainHeading } from "../../globalStyles";
+import Link from 'next/link';
+import { NextButton, Container, MainHeading } from "../../globalstyles";
 import DividerWaves from "../Dividers/DividerWave";
 import { HeroMainHeading, HeroSection, HeroText } from "./HeroStyles";
 

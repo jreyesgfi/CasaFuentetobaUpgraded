@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {Container, globalColors, MainHeading} from '../../globalStyles';
-import {Link} from 'react-router-dom';
+import {Container, globalColors, Heading} from '../../globalStyles';
+import Link from 'next/link';
 
 export const Nav = styled.nav`
 	position:fixed;
@@ -34,12 +34,14 @@ export const NavLogo = styled(Link)`
 	align-items: center;
 	z-index: 250;
 `;
-export const NavTitle = styled(MainHeading)`
+export const NavTitle = styled(Heading)`
 	font-size: 10pt;
 	font-family: primary-bold, sans-serif;
 	text-align:left;
 	max-width:40px;
-	margin:0;
+	margin:auto auto auto 0;
+	height:fit-content;
+
 `;
 
 export const NavIcon = styled.img`

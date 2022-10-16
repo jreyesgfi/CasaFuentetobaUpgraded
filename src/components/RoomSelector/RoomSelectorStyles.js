@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { motion } from 'framer-motion';
-import { globalColors, Row } from "../../globalStyles";
+import { globalColors, Row } from "../../GlobalStyles";
 
 export const RoomButtonsContainer = styled(Row)`
     flex-wrap:wrap;
     height:auto;
-    width:70%;
+    width:90%;
     margin-left: 2rem;
 `;
 

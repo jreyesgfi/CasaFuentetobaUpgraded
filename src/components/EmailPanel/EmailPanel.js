@@ -45,15 +45,19 @@ const EmailPanel = forwardRef((props, ref) => {
                                 <>
                                     <FormInput
                                         label={'Nombre'}
+                                        originalValue={formObjectRef.current?.['name']}
                                         setValue={(value) => { formObjectRef.current['name'] = value }}
                                     />
                                     <FormInput
                                         label={'Apellidos'}
+                                        originalValue={formObjectRef.current?.['firstName']}
                                         setValue={(value) => { formObjectRef.current['firstName'] = value }}
                                     />
                                     <FormInput
                                         label={'Teléfono (opcional)'}
+                                        originalValue={formObjectRef.current?.['phone']}
                                         type='number'
+                                        phone={true}
                                         setValue={(value) => { formObjectRef.current['phone'] = value }}
                                     />
                                 </>
@@ -70,6 +74,7 @@ const EmailPanel = forwardRef((props, ref) => {
                                     </NameInfoWrapper>
                                     <FormInput
                                         label={'Comentarios'}
+                                        originalValue={formObjectRef.current?.['comments']}
                                         longText={true}
                                         setValue={(value) => { formObjectRef.current['comments'] = value }}
                                     />
@@ -90,7 +95,7 @@ const EmailPanel = forwardRef((props, ref) => {
                                 </EmailPanelButton>
                                 <EmailPanelButton
                                     onClick={() => {
-                                        if (step === 1) {
+                                        if (step === 1 && typeof window !== "undefined") {
                                             window.open(
                                                 `mailto:${emailDirection}?subject=Reserva para ${selectedDays}&body=Hola, soy ${nombreCompleto}. Quería solicitar la reserva de la casa rural para el periodo ${selectedDays}. \n${formObjectRef.current?.['phone'] ? 'Mi número de teléfono es el ' + formObjectRef.current?.['phone'] + '. ' : ''}\n${formObjectRef.current?.['comments'] ? 'Comentarios: ' + formObjectRef.current?.['comments'] + '. ' : ''}
                                          `

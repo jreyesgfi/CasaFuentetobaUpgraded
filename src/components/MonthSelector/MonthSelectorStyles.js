@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { globalColors, MainHeading, Row } from "../../globalStyles";
 
 export const MonthSelectorWrapper = styled.div`
-    max-width:800px;
+    
 `;
 
 export const MonthSelectorIcon = styled.img`
@@ -21,8 +21,12 @@ export const MonthSelectorHeading = styled(MainHeading)`
 `;
 
 export const SelectionPanel = styled(Row)`
-    width:100%;
+    width:fit-content;
     justify-content:center;
+    margin: 1rem auto;
+    border: 1pt solid ${globalColors.grey.primary};
+    border-left:none;
+    border-right:none;
     >:first-child{
         *{
             text-align:end;

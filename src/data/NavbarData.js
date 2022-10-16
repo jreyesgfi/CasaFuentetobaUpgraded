@@ -5,7 +5,7 @@ const data = [
 		id: 'Home',
 	},
 	{
-		to: '/galeria',
+		to: '/gallery',
 		text: 'Galería',
 	},
 	{
@@ -13,11 +13,11 @@ const data = [
 		text: 'Detalles',
 	},
     {
-		to: '/reserva',
+		to: '/booking',
 		text: 'Reserva',
 	},
     {
-		to: '/contacto',
+		to: '/contact',
 		text: 'Contacto',
 	},
 ];

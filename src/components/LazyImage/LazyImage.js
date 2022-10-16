@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { animationVariants, cssImageStyle, cssWrapperStyle, DotLottieWrapper } from './LazyImageStyles';
 // import LazyLoad from "react-lazyload";
 import styled from 'styled-components';
-import '@dotlottie/player-component';
 import { AnimatePresence, motion } from 'framer-motion';
-import IDGenerator from '../../util/IdGenerator';
+import ('@dotlottie/player-component')
 
 
 export const NormalDiv = styled(motion.div)`
@@ -23,7 +22,7 @@ export const NormalDiv = styled(motion.div)`
 const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick }) => {
 
     const [loading, setLoading] = useState(2);
-    useEffect(()=>{
+    useEffect(() => {
         async function wait() {
             await new Promise(() => {
                 setTimeout(() => {
@@ -32,10 +31,16 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
             })
         };
         wait();
-    },[])
+    }, [])
+
+    src = src.default.src
+
+    // Load the animation asynchronously
+
+    const ref = useRef();
 
     const loadedDone = () => {
-        const animationTime = 1500
+        const animationTime = 1000
         async function wait() {
             await new Promise(() => {
                 setTimeout(() => {
@@ -52,15 +57,15 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
             backgroundColor: '#ffffff',
             opacity: 0,
             transition: { duration: 0.5 },
-            position:'absolute',
-            inset:0,
-            width:'100%',
-            height:'100%',
-            maxHeight:'100%',
-            maxWidth:'100%',
-            minHeight:'100%',
-            minWidth:'100%',
-            zIndex:100,
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            maxHeight: '100%',
+            maxWidth: '100%',
+            minHeight: '100%',
+            minWidth: '100%',
+            zIndex: 100,
         },
         1: {
             opacity: 1,
@@ -71,14 +76,14 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
 
     const StyledImage = styled(imageStyle)`
         ${cssImageStyle};
-        visibility: ${({loading})=>(loading===0?'visible':'hidden')};
+        visibility: ${({ loading }) => (loading === 0 ? 'visible' : 'hidden')};
         `
-    ;
+        ;
     const StyledWrapper = motion.div
     return (
         <StyledWrapper
             initial={cssWrapperStyle}
-            onClick={handleClick||function(){}}>
+            onClick={handleClick || function () { }}>
             <AnimatePresence>
                 {loading > 0 && (
                     <motion.div
@@ -87,7 +92,9 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
                         variants={animationVariants}
                         exit='0'
                         key={'holder'}
+                        ref={ref}
                     >
+
                         <dotlottie-player
                             src="./assets/lottie/dotSquaresJumping.lottie"
                             autoplay
@@ -104,6 +111,7 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
                         }}
                         loading={loading}
                         src={src}
+                        alt={alt??'Imagen casa en fuentetoba'}
                     />
                 )}
             </AnimatePresence>

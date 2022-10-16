@@ -210,10 +210,10 @@ for (let image of images){
 //////////////////////
 
 export const roomDict = {
-    'JARDÍN':"./assets/images/gallery/terraza/2.jpeg",
-    'SALÓN':"./assets/images/gallery/salon/1.jpg",
-    'BAÑOS':"./assets/images/gallery/baño/1.jpg",
-    'HABITACIONES':"./assets/images/gallery/habitacion/1.jpg",
-    'COCINA':"./assets/images/gallery/cocina/1.jpg",
-    'GENERAL':"./assets/images/gallery/general/1.jpg",
+    'JARDÍN':`../assets/images/gallery/terraza/2.jpeg`,
+    'SALÓN':"../assets/images/gallery/salon/1.jpg",
+    'BAÑOS':"../assets/images/gallery/baño/1.jpg",
+    'HABITACIONES':"../assets/images/gallery/habitacion/1.jpg",
+    'COCINA':"../assets/images/gallery/cocina/1.jpg",
+    'GENERAL':"../assets/images/gallery/general/1.jpg",
 }

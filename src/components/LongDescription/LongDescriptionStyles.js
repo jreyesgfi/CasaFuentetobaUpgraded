@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MainHeading, Text } from "../../globalStyles";
+import { Heading, Text } from "../../globalStyles";
 
 export const LongDescriptionWrapper = styled.div`
      position:relative;
@@ -7,10 +7,11 @@ export const LongDescriptionWrapper = styled.div`
      padding-left:2rem;
 `;
 
-export const LongDescriptionHeading = styled(MainHeading)`
+export const LongDescriptionHeading = styled(Heading)`
     text-align:left;
     width:fit-content;
     display:block;
+    margin-bottom:3rem;
 `;
 
 export const LongDescriptionText = styled(Text)`

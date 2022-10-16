@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { globalColors} from '../../globalStyles';
+import { globalColors} from '../../globalstyles';
 
 export const DividerWavesDiv = styled.div`
     position: ${({ absolute }) => (absolute ? 'absolute' : 'relative')};
