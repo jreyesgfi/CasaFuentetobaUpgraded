@@ -91,18 +91,16 @@ export const MainHeading = styled.h1`
 	user-select: none;
 `;
 export const Heading = styled.h2`
-    font-size: clamp(1.3rem, 13vw, 3.1rem);
-	user-select: none;
-	margin: ${({ margin }) => (margin ? margin : '')};
-	margin-bottom: ${({ mb }) => (mb ? mb : '')};
-	margin-top: ${({ mt }) => (mt ? mt : '')};
+	font-size: clamp(2.3rem, 4vw, 4.5rem);
+	margin-bottom: 1rem;
 	color: ${({ inverse }) => (inverse ? 
         globalColors.dark.primary : 
         globalColors.light.primary)};
-	letter-spacing: 0.4rem;
-	line-height: 1.06;
+	width: 100%;
+	margin: 1rem 0;
+	letter-spacing: 4px;
 	text-align: center;
-	width: ${({ width }) => (width ? width : '100%')};
+	user-select: none;
 `;
 export const TextWrapper = styled.span`
 	position: ${({ position }) => (position ? position : 'relative')};

@@ -14,9 +14,9 @@ const ErrorPage = ()=>{
 		return null;
 	}
     return(
-        <AnimatedPage>
+        <>
             Página ErrorPage
-        </AnimatedPage>
+        </>
     )
 }
 export default ErrorPage;

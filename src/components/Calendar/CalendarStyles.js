@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, globalColors, MainHeading, minimunSize, Row } from "../../globalStyles";
+import { Column, globalColors, Heading, minimunSize, Row } from "../../globalStyles";
 
 const baseStyle = {
     'background':globalColors.light.primary,
@@ -93,7 +93,7 @@ export const DayCell = styled(Column)`
     text-decoration: ${({occupied})=>(occupied?occupiedStyle.textDecoration:'')};
 `;
 
-export const DayCellHeader = styled(MainHeading)`
+export const DayCellHeader = styled(Heading)`
     text-align: left;
     margin:0;
     font-size:clamp(1.5rem, 1.5vw, 2.6rem);

@@ -14,9 +14,9 @@ const Comments = ()=>{
 		return null;
 	}
     return(
-        <AnimatedPage>
+        <>
             Página Comments
-        </AnimatedPage>
+        </>
     )
 }
 export default Comments;

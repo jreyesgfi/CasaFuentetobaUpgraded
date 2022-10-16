@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import {GlobalStyles} from "./../globalstyles";
 import Navbar from "../components/Navbar/Navbar";
 import { Head } from "next/document";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 
-function App({Component, pageProps}) {
+function App({Component, pageProps, router}) {
   const [hydrated, setHydrated] = React.useState(false);
 	React.useEffect(() => {
 		// This forces a rerender, so the date is rendered
@@ -21,7 +22,9 @@ function App({Component, pageProps}) {
     <div>
         <Navbar />
         <GlobalStyles/>
-        <Component {...pageProps} />
+        <AnimatedPage router={router}>
+          <Component {...pageProps} />
+        </AnimatedPage>
     </div>
   )
 }

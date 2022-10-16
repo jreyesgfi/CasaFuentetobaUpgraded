@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { MainHeading, Text } from "../../globalStyles";
+import { Heading, Text } from "../../globalStyles";
 
 
-export const CalendarInstructionsHeading = styled(MainHeading)`
+export const CalendarInstructionsHeading = styled(Heading)`
     text-align:left;
     font-size:clamp(1.3rem, 4vw, 3rem);
 `;

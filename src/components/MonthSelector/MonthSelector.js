@@ -28,7 +28,6 @@ const MonthSelector=(props)=>{
                 onClick={()=>{props.onClick()}}>
                     <>
                         {`${monthsDict[currentMonth]}, ${currentYear}`}
-                        <MonthSelectorIcon src='/assets/icons/darkDownArrow.png' open={props?.selectingDay === true}/>
                     </>
             </MonthSelectorHeading>
             {props?.selectingDay === true &&
@@ -46,6 +45,10 @@ const MonthSelector=(props)=>{
                     callback={(year)=>{adjustMonth({'year':[initialYear,initialYear+1][year]})}}/>
             </SelectionPanel>
             }
+             <MonthSelectorIcon 
+                src='/assets/icons/darkDownArrow.png'
+                open={props?.selectingDay === true}
+                onClick={()=>{props.onClick()}}/>
         </MonthSelectorWrapper>
     )
 }

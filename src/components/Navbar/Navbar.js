@@ -67,7 +67,7 @@ const Navbar = () => {
                 <NavbarContainer>
                     <NavLogo href='/'>
                         <>
-                            <NavIcon src='./assets/icons/black-app-icon.svg' alt='logo'>
+                            <NavIcon src='../assets/icons/black-app-icon.svg' alt='logo'>
                             </NavIcon>
                             <NavTitle>
                                 Casa Fuentetoba

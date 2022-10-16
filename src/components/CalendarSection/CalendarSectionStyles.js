@@ -25,7 +25,6 @@ export const TotalPriceWrapper = styled.div`
 `; 
 
 export const TotalPrice = styled.p`
-
     width: fit-content;
     margin:auto;
     padding: 2rem;

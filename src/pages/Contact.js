@@ -16,11 +16,11 @@ const Contact = ()=>{
 		return null;
 	}
     return(
-        <AnimatedPage>
+        <>
             <Section inverse>
                 <ContactInfo/>
             </Section>
-        </AnimatedPage>
+        </>
     )
 }
 export default Contact;

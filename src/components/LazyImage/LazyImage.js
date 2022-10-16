@@ -3,6 +3,7 @@ import { animationVariants, cssImageStyle, cssWrapperStyle, DotLottieWrapper } f
 // import LazyLoad from "react-lazyload";
 import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
+import ('@dotlottie/player-component')
 
 
 export const NormalDiv = styled(motion.div)`
@@ -37,10 +38,6 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
     // Load the animation asynchronously
 
     const ref = useRef();
-
-    useEffect(() => {
-        import('@dotlottie/player-component')
-    }, []);
 
     const loadedDone = () => {
         const animationTime = 1000
@@ -114,6 +111,7 @@ const LazyImage = ({ src, alt, imageStyle, delayTime, wrapperStyle, handleClick 
                         }}
                         loading={loading}
                         src={src}
+                        alt={alt??'Imagen casa en fuentetoba'}
                     />
                 )}
             </AnimatePresence>

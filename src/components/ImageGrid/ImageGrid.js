@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import LazyImage from '../LazyImage/LazyImage';
 import { ImageGridWrapper, MainImageInGrid, MainImageInGridWrapper, OtherImageHolder, OtherImageInGrid, OtherImagesInGridWrapper } from './ImageGridStyle';
 

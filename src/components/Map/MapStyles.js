@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, globalColors, MainHeading } from "../../globalStyles";
+import { Column, globalColors, Heading } from "../../globalStyles";
 
 export const MapWrapper = styled(Column)`
     margin-right:max(10vw,30px);
@@ -12,7 +12,7 @@ export const MapWrapper = styled(Column)`
         width:fit-content;
     }
 `;
-export const LocationHeading = styled(MainHeading)`
+export const LocationHeading = styled(Heading)`
     font-size:1.4rem;
     margin-top:0.5rem;
 `;

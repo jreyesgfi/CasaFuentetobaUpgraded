@@ -2,5 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/booking": "pages/booking.js"
+  "/404error": "pages/404error.html",
+  "/booking": "pages/booking.html",
+  "/comments": "pages/comments.html",
+  "/contact": "pages/contact.html",
+  "/gallery": "pages/gallery.html",
+  "/": "pages/index.html",
+  "/info": "pages/info.html",
+  "/404": "pages/404.html"
 }

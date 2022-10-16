@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Column, globalColors, MainHeading, Row, Text } from "../../globalStyles";
+import { Button, Column, globalColors, Heading, Row, Text } from "../../globalStyles";
 
 export const EmailPanelWrapper = styled(Column)`
     position:relative;
@@ -7,7 +7,7 @@ export const EmailPanelWrapper = styled(Column)`
     min-height:50vh;
 `;
 
-export const EmailPanelHeader = styled(MainHeading)`
+export const EmailPanelHeader = styled(Heading)`
     font-size: clamp(1.6rem, 4.5vw, 4.5rem);
 `;
 
@@ -15,14 +15,14 @@ export const BookingInfoWrapper = styled(Column)`
     margin:1rem 0 2rem;
     >*{
         color:${globalColors.light.primary};
-        font-size:min(18pt,3vw);
+        font-size:clamp(15px,3vw,18pt);
     }
 `;
 
 export const NameInfoWrapper = styled(Column)`
     margin:-1rem 0 2rem;
     >*{
-        font-size:min(18pt,3vw);
+        font-size:clamp(15px,3vw,18pt);
     }
 `;
 

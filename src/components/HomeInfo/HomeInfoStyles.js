@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GlobalStyles, { MainHeading, Column, Row, globalColors } from "../../globalstyles";
+import GlobalStyles, { Heading, Column, Row, globalColors } from "../../globalstyles";
 import {motion} from 'framer-motion';
 
 
@@ -29,7 +29,7 @@ export const PriceInfoWrapper = styled(Column)`
 export const HomeInfoMotion = styled(motion.div)`
 `
 
-export const PriceInfoNumber = styled(MainHeading)`
+export const PriceInfoNumber = styled(Heading)`
     margin-bottom:0;
     text-align:left;
     z-index:60;
@@ -42,7 +42,7 @@ export const PriceInfoNumber = styled(MainHeading)`
 `;
 export const PriceInfoSubtitle = styled.p`
     z-index:60;
-    font-size:14pt;
+    font-size:max(14pt,1.5vw);
     
     @media screen and (max-width: 650px) {
         font-family:primary-bold;

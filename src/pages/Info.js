@@ -71,12 +71,12 @@ const Info = ()=>{
 	}
     
     return(
-        <AnimatedPage>
+        <>
             <Description/>
             <Features ref={topRef}/>
             <LongDescription ref={bottomRef}/>
             <IndicationIcon indications={indicationState}/>
-        </AnimatedPage>
+        </>
     )
 }
 export default Info;

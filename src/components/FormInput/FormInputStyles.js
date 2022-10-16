@@ -19,7 +19,7 @@ const inputCSS = css`
     position:absolute;
     inset:0;
     outline:none;
-    font-size: min(15pt,2.5vw);
+    font-size: clamp(15px,3vw,18pt);
     width:100%;
     height:100%;
     padding-left:1rem;
@@ -59,7 +59,7 @@ export const FormInputDesign = styled.input`
 export const FormInputWrapper = styled.div`
     position:relative;
     width:min(50%, 300px);
-    min-height:min(36pt,6vw);
+    min-height:clamp(40px,6vw,36pt);
     height:fit-content;
     margin:0.5rem 0;
     @media screen and (max-width: 600px) {

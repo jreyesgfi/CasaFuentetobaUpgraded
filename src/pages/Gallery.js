@@ -67,11 +67,11 @@ const Gallery = () => {
 	}
 
     return (
-        <AnimatedPage>
+        <>
             <PhotoSection ref={topRef}/>
             <VideoSection ref={bottomRef} />
             <IndicationIcon indications={indicationState} />
-        </AnimatedPage>
+        </>
     )
 }
 export default Gallery;
